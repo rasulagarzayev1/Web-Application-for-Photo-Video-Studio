@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="hireHead">
+    <img src="~/Public/images/banner1.png" alt="">
+    <div class="hireLayout"></div>
+    <h1>HIRE</h1>
+    <p class="hireSubtitle"><span>Hire</span>Us</p>
+</section>
+
+
+<section id="services">
+    <div class="container-fluid serviceDiv">
+        <div class="row">
+            <div class="col-md-4 imgDiv">
+                <img src="~/Public/images/service1.jpg" alt="">
+                <div class="imgLayout"></div>
+                <h2>SERVICES</h2>
+                <p><span><b>Our</b></span> Services</p>
+            </div>
+            <div class="col-md-8 servicePart">
+                <div class="row">
+                    <div class="col-md-4 services firstService upperService">
+                        <i class="fa fa-camera"></i>
+                        <h2>Photo Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services secondService upperService">
+                        <i class="fa fa-film"></i>
+                        <h2>Movie Clapper</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services thirdService upperService">
+                        <i class="far fa-image"></i>
+                        <h2>Images Interface</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fourthService">
+                        <i class="far fa-file-video"></i>
+                        <h2>Film Roll</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fifthService">
+                        <i class="far fa-file-image"></i>
+                        <h2>Camera Diaphragm</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services sixthService">
+                        <i class="fas fa-video"></i>
+                        <h2>Video Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="hireUsPart">
+    <div class="container">
+        <h2>SELECT YOUR HIRING</h2>
+        <div class="row">
+            <div class="col-md-3 hireDivs studio">
+                <p>Hire Our Studio</p>
+            </div>
+            <div class="col-md-3 offset-md-1 hireDivs photographs">
+                <p>Hire Our Photograps</p>
+            </div>
+            <div class="col-md-3 offset-md-1 hireDivs videographs">
+                <p>Hire Our Videographs</p>
+            </div>
+            <div class="col-12 formDivs">
+                <form method="post" action="/Hiring/Studio" class="studioForm">
+                    <div class="row hireFormRow">
+                        <div class="col-md-3">
+                            <input name="OrderDate" required min="@DateTime.Now" type="date" class="form-control calendar HireformItems" id="timePickerForStudio">
+                        </div>
+                        <div class="col-md-3">
+                            <select required name="OrderTypeID" class="form-control HireformItems" id="StudioTypeDrop">
+                                <option value="0">Select Studio Type</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value="Hire" class="hireButton">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div  class="col-12 formDivs">
+                <form method="post" action="/Hiring/Index" class="photoForm">
+                    <div class="row hireFormRow">
+                        <div class="col-md-3">
+                                @Html.DropDownList("OrderTypeID", (IEnumerable<SelectListItem>)ViewBag.OrderTypes, "Select Order Type", new { @class = "form-control HireformItems OrderTypeDrop" , required = (string)null })
+                        </div>
+                        <div class="col-md-3">
+                            <input required name="OrderDate" min="@DateTime.Now" type="date" id="timePicker" class="form-control calendar HireformItems">
+                        </div>
+                        <div class="col-md-3">
+                            <select required class="form-control HireformItems" name="StaffID" id="photoDrop">
+                                <option value="0">Select Photographs</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="submit" value="Hire" class="hireButton">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 formDivs">
+                <form method="post" action="/Hiring/Index" class="videoForm">
+                    <div class="row hireFormRow">
+                        <div class="col-md-3">
+                            @Html.DropDownList("OrderTypeID", (IEnumerable<SelectListItem>)ViewBag.OrderTypes,"Select Order Type", new { @class = "form-control HireformItems OrderTypeDrop", required = (string)null })
+                        </div>
+                        <div class="col-md-3">
+                            <input required name="OrderDate" min="@DateTime.Now" type="date" class="form-control calendar HireformItems" id="timePickerForVideo">
+                        </div>
+                        <div class="col-md-3">
+                            <select required name="StaffID" class="form-control HireformItems videoSelectList">
+                                <option value="0">Select Videograph</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <input type="submit" value="Hire" class="hireButton">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+@section Script{
+    <script>
+        $("#timePicker").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/LoadPhotographs",
+                    data: { date: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                            $("#photoDrop").html($("#photoDrop").html + res);
+                    }
+                })
+            }
+        })
+
+        $("#timePickerForVideo").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/LoadVideographsforDate",
+                    data: { date: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                        if (res.trim().length != 0) {
+                            $(".videoSelectList").html($(".videoSelectList").html + res);
+                        }
+                        else {
+                            $(".videoSelectList").html("No avialable Photographs");
+                        }
+                    }
+                })
+            }
+        })
+        $("#timePickerForStudio").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/LoadStudioforDate",
+                    data: { date: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                        if (res.trim().length != 0) {
+                            $("#StudioTypeDrop").html($("#StudioTypeDrop").html + res);
+                        }
+                    }
+                })
+            }
+        })
+    </script>
+
+
+}
+@*@section scripts{
+    <script>
+        $(".OrderTypeDrop").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/LoadPhotoSpeciality",
+                    data: { orderTypeID: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                        $("#photoDrop").html($("#photoDrop").html + res);
+
+                    }
+                })
+            }
+        })
+
+
+        $(".OrderTypeDrop").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/PartialLoadVideographsForOrderTypes",
+                    data: { orderTypeID: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                        $(".videoSelectList").html($(".videoSelectList").html + res);
+
+                    }
+                })
+            }
+        })
+    </script>
+
+
+}*@

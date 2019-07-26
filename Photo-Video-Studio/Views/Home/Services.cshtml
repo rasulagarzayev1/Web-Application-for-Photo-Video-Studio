@@ -1,0 +1,124 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model ServiceViewModel
+@{
+    ViewBag.Title = "Services";
+}
+
+<section id="serviceHead">
+    <img src="~/Public/images/@Model.ServiceHeader.Image" alt="">
+    <div class="serviceLayout"></div>
+    <h1>SERVICE</h1>
+    <p class="serviceSubtitle"><span>Our</span> Services</p>
+</section>
+
+<section id="services">
+    <div class="container serviceDiv">
+        <div class="row">
+            <div class="col-md-12 servicePart">
+                <div class="row">
+                    <div class="col-md-4 services firstService upperService">
+                        <i class="fa fa-camera"></i>
+                        <h2>Photo Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services secondService upperService">
+                        <i class="fa fa-film"></i>
+                        <h2>Movie Clapper</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services thirdService upperService">
+                        <i class="far fa-image"></i>
+                        <h2>Images Interface</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fourthService">
+                        <i class="far fa-file-video"></i>
+                        <h2>Film Roll</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fifthService">
+                        <i class="far fa-file-image"></i>
+                        <h2>Camera Diaphragm</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services sixthService">
+                        <i class="fas fa-video"></i>
+                        <h2>Video Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="team">
+    <h2>TEAM</h2>
+    <p class="teamSubtitle"><span>Our</span> Team</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var team in Model.Teams)
+            {
+                <div class="col-md-3">
+                    <div class="teamDiv">
+                        <img src="~/Public/images/@team.Image" alt="">
+                        <h3>@team.FullName</h3>
+                        <p>@team.Job</p>
+                        <hr>
+                        <span><i class="fab fa-twitter"></i></span>
+                        <span><i class="fab fa-facebook-f"></i></span>
+                        <span><i class="fab fa-google-plus-g"></i></span>
+                        <span><i class="fab fa-linkedin-in"></i></span>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+<section id="facts">
+    <h2>FACTS</h2>
+    <p class="facts"><span>Our</span> Facts</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-12 factDivs">
+                    <p class="factCount experCount">@Model.Fact.ExperienceCount</p>
+                    <h3 class="factHeader">@Model.Fact.ExperienceTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ExperienceSubtitle
+                    </p>
+                </div>
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.ClientsCount</p>
+                    <h3 class="factHeader">@Model.Fact.ClientsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ClientsSubtitle
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 logoFact">
+                <div class="factLogoDiv">
+                    <img src="~/Public/images/@Model.Fact.Image" alt="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.ProjectsCount</p>
+                    <h3 class="factHeader">@Model.Fact.ProjectsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ProjectsSubtitle
+                    </p>
+                </div>
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.AwardsCount</p>
+                    <h3 class="factHeader">@Model.Fact.AwardsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.AwardsSubtitle
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Photo_Video_Studio.Models.NewsComment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Commentdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.News.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commentdate)
+        </td>
+        <td>
+            <img src="~/Public/images/@item.News.Image" alt="Alternate Text" />
+        </td>
+        <td>
+            <a href="@Url.Action("Delete", "NewsComments", new { id =item.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

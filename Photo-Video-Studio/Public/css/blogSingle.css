@@ -1,0 +1,450 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#blogHead {
+  position: relative;
+}
+#blogHead img {
+  width: 100%;
+}
+#blogHead .blogLayout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.445);
+  height: 466px;
+}
+#blogHead h1 {
+  color: #e5e5e54d;
+  font-size: 5em;
+  font-family: 'Archivo Black', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 43%;
+}
+#blogHead .blogSubtitle {
+  position: absolute;
+  top: 56%;
+  left: 48%;
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+#blogHead .blogSubtitle span {
+  font-weight: 1000;
+  color: #d50000;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #blogHead img {
+    height: 170px;
+  }
+  #blogHead .blogLayout {
+    height: 170px;
+  }
+  #blogHead h1 {
+    font-size: 3em;
+    top: 50%;
+    left: 25%;
+  }
+  #blogHead .blogSubtitle {
+    top: 60%;
+    left: 36%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #blogHead img {
+    height: 270px;
+  }
+  #blogHead .blogLayout {
+    height: 270px;
+  }
+  #blogHead h1 {
+    font-size: 3em;
+    top: 50%;
+    left: 42%;
+  }
+  #blogHead .blogSubtitle {
+    top: 56%;
+    left: 47%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+  #blogHead img {
+    height: 270px;
+  }
+  #blogHead .blogLayout {
+    height: 270px;
+  }
+  #blogHead h1 {
+    font-size: 3em;
+    top: 50%;
+    left: 42%;
+  }
+  #blogHead .blogSubtitle {
+    top: 56%;
+    left: 47%;
+    font-size: 1em;
+  }
+}
+#singleBlog {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+#singleBlog .blogHeader {
+  text-align: center;
+  color: #e5e5e5;
+  font-size: 5.5em;
+  font-family: 'Archivo Black', sans-serif;
+  padding-bottom: 4%;
+}
+#singleBlog .blogSubtitle {
+  position: absolute;
+  top: 2.5%;
+  left: 45%;
+  font-size: 1.7em;
+  font-family: 'Montserrat', sans-serif;
+}
+#singleBlog .blogSubtitle span {
+  color: #d50000;
+  font-weight: 900;
+  font-family: 'Archivo Black', sans-serif;
+}
+#singleBlog img {
+  width: 100%;
+}
+#singleBlog .singleText .blogName {
+  padding: 4% 0 2% 0;
+  font-size: 1.7em;
+  font-weight: bold;
+  transition: all 1s ease-in-out;
+}
+#singleBlog .singleText .blogName:hover {
+  cursor: pointer;
+  color: #d50000;
+}
+#singleBlog .singleText .blogUser {
+  padding-block-end: 3%;
+}
+#singleBlog .singleText .blogUser a {
+  color: black;
+  text-decoration: none;
+  transition: all 1s ease-in-out;
+  font-size: 1em;
+}
+#singleBlog .singleText .blogUser a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #d50000;
+}
+#singleBlog .singleText .blogP {
+  color: #777777;
+  line-height: 1.7em;
+}
+#singleBlog .singleText .commetPart {
+  padding: 5% 0;
+}
+#singleBlog .singleText .commetPart .commentsHeader {
+  padding: 4% 0;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+#singleBlog .singleText .commetPart img {
+  width: 70%;
+  border-radius: 100%;
+}
+#singleBlog .singleText .commetPart .commentUser {
+  font-weight: bolder;
+  color: #d50000;
+  padding-bottom: 1%;
+}
+#singleBlog .singleText .commetPart .commentUser span {
+  color: black;
+}
+#singleBlog .singleText .commetPart .commentText {
+  font-size: 0.9em;
+  line-height: 1.7em;
+  color: #777777;
+}
+#singleBlog .singleText .commetPart textarea {
+  margin-top: 3%;
+}
+#singleBlog .singleText .commetPart .postComment {
+  display: inline-block;
+  margin-top: 4%;
+  padding: 2%;
+  background-color: #777777;
+  color: white;
+  text-decoration: none;
+  transition: all 1s ease-in-out;
+}
+#singleBlog .singleText .commetPart .postComment:hover {
+  background-color: #d50000;
+}
+#singleBlog .recentPart input {
+  margin-left: 8%;
+  padding: 3%;
+  border: 1px solid rgba(26, 25, 25, 0.253);
+  margin-right: -4px;
+  border-right: transparent;
+}
+#singleBlog .recentPart button {
+  padding: 3.71%;
+  border: transparent;
+  transition: all 1s ease-in;
+}
+#singleBlog .recentPart button:hover {
+  cursor: pointer;
+  background-color: #d50000;
+}
+#singleBlog .recentPart button:hover i {
+  color: white;
+}
+#singleBlog .recentPart .recentHeader {
+  margin-left: 7.5%;
+  padding-top: 10%;
+  padding-bottom: 4%;
+  font-weight: bold;
+}
+#singleBlog .recentPart .recentImgDiv {
+  margin-bottom: 5%;
+}
+#singleBlog .recentPart .recentImgDiv img {
+  width: 80%;
+  margin-left: 28%;
+}
+#singleBlog .recentPart .recentTextDiv h3 a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 1s ease-in;
+}
+#singleBlog .recentPart .recentTextDiv h3 a:hover {
+  color: #d50000;
+}
+#singleBlog .recentPart .recentTextDiv p {
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+#singleBlog .recentPart .recentTextDiv .recentReadMore {
+  color: #d50000;
+  padding-top: 3%;
+  display: inline-block;
+}
+#singleBlog .recentPart .recentTextDiv .recentReadMore:hover {
+  text-decoration: none;
+}
+#singleBlog .recentPart .popularTags {
+  margin-left: 5%;
+}
+#singleBlog .recentPart .spanDiv {
+  margin-left: 5%;
+}
+#singleBlog .recentPart .spanDiv .tagSpan {
+  background-color: #eee;
+  padding: 3%;
+  display: inline-block;
+  margin-top: 2%;
+  transition: all 1s ease-in-out;
+}
+#singleBlog .recentPart .spanDiv .tagSpan a {
+  color: black;
+  text-decoration: none;
+}
+#singleBlog .recentPart .spanDiv .tagSpan:hover {
+  background-color: #d50000;
+}
+#singleBlog .recentPart .spanDiv .tagSpan:hover a {
+  color: white;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #singleBlog .blogHeader {
+    font-size: 5.5em;
+    padding-bottom: 4%;
+  }
+  #singleBlog .blogSubtitle {
+    top: 1.5%;
+    left: 33%;
+    font-size: 1.7em;
+  }
+  #singleBlog .singleText .blogName {
+    padding: 4% 0 2% 0;
+    font-size: 1.7em;
+  }
+  #singleBlog .singleText .blogUser {
+    padding-block-end: 3%;
+  }
+  #singleBlog .singleText .blogUser a {
+    font-size: 1em;
+  }
+  #singleBlog .singleText .blogP {
+    line-height: 1.7em;
+    font-size: 0.7em;
+  }
+  #singleBlog .singleText .commetPart {
+    padding: 5% 0;
+  }
+  #singleBlog .singleText .commetPart .commentsHeader {
+    padding: 4% 0;
+    font-size: 1.6em;
+  }
+  #singleBlog .singleText .commetPart img {
+    width: 70%;
+    border-radius: 100%;
+  }
+  #singleBlog .singleText .commetPart .commentUser {
+    padding-bottom: 1%;
+  }
+  #singleBlog .singleText .commetPart .commentText {
+    font-size: 0.6em;
+    line-height: 1.7em;
+  }
+  #singleBlog .singleText .commetPart textarea {
+    margin-top: 3%;
+    width: 100%;
+  }
+  #singleBlog .singleText .commetPart .postComment {
+    margin-top: 4%;
+    padding: 2%;
+  }
+  #singleBlog .recentPart input {
+    margin-left: 8%;
+    padding: 3%;
+    margin-right: -4px;
+  }
+  #singleBlog .recentPart button {
+    padding: 3.71%;
+  }
+  #singleBlog .recentPart .recentHeader {
+    margin-left: 7.5%;
+    padding-top: 10%;
+    padding-bottom: 4%;
+  }
+  #singleBlog .recentPart .recentImgDiv {
+    margin-bottom: 5%;
+  }
+  #singleBlog .recentPart .recentImgDiv img {
+    width: 80%;
+    margin-left: 28%;
+  }
+  #singleBlog .recentPart .recentTextDiv p {
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+  #singleBlog .recentPart .recentTextDiv .recentReadMore {
+    padding-top: 3%;
+    display: inline-block;
+  }
+  #singleBlog .recentPart .popularTags {
+    margin-left: 5%;
+  }
+  #singleBlog .recentPart .spanDiv {
+    margin-left: 5%;
+  }
+  #singleBlog .recentPart .spanDiv .tagSpan {
+    padding: 3%;
+    margin-top: 2%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #singleBlog .blogHeader {
+    font-size: 5.5em;
+    padding-bottom: 4%;
+  }
+  #singleBlog .blogSubtitle {
+    top: 2.5%;
+    left: 42%;
+    font-size: 1.7em;
+  }
+  #singleBlog .singleText .blogName {
+    padding: 4% 0 2% 0;
+    font-size: 1.7em;
+  }
+  #singleBlog .singleText .blogUser {
+    padding-block-end: 3%;
+  }
+  #singleBlog .singleText .blogUser a {
+    font-size: 1em;
+  }
+  #singleBlog .singleText .blogP {
+    line-height: 1.7em;
+    font-size: 0.7em;
+  }
+  #singleBlog .singleText .commetPart {
+    padding: 5% 0;
+  }
+  #singleBlog .singleText .commetPart .commentsHeader {
+    padding: 4% 0;
+    font-size: 1.6em;
+  }
+  #singleBlog .singleText .commetPart img {
+    width: 70%;
+    border-radius: 100%;
+  }
+  #singleBlog .singleText .commetPart .commentUser {
+    padding-bottom: 1%;
+  }
+  #singleBlog .singleText .commetPart .commentText {
+    font-size: 0.6em;
+    line-height: 1.7em;
+  }
+  #singleBlog .singleText .commetPart textarea {
+    margin-top: 3%;
+    width: 100%;
+  }
+  #singleBlog .singleText .commetPart .postComment {
+    margin-top: 4%;
+    padding: 2%;
+  }
+  #singleBlog .recentPart input {
+    margin-left: 4%;
+    padding: 3%;
+    margin-right: -4px;
+    width: 76%;
+  }
+  #singleBlog .recentPart button {
+    padding: 3.71%;
+  }
+  #singleBlog .recentPart .recentHeader {
+    margin-left: 7.5%;
+    padding-top: 10%;
+    padding-bottom: 4%;
+  }
+  #singleBlog .recentPart .recentImgDiv {
+    margin-bottom: 5%;
+  }
+  #singleBlog .recentPart .recentImgDiv img {
+    width: 80%;
+    margin-left: 28%;
+  }
+  #singleBlog .recentPart .recentTextDiv h3 {
+    font-size: 0.7em;
+  }
+  #singleBlog .recentPart .recentTextDiv p {
+    font-size: 0.7em;
+    line-height: 1.4em;
+  }
+  #singleBlog .recentPart .recentTextDiv .recentReadMore {
+    padding-top: 3%;
+    display: inline-block;
+  }
+  #singleBlog .recentPart .popularTags {
+    margin-left: 5%;
+  }
+  #singleBlog .recentPart .spanDiv {
+    margin-left: 5%;
+  }
+  #singleBlog .recentPart .spanDiv .tagSpan {
+    padding: 3%;
+    margin-top: 2%;
+  }
+}
+
+/*# sourceMappingURL=blogSingle.css.map */
+

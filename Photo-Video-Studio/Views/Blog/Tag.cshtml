@@ -1,0 +1,103 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model BlogViewModel
+@{
+    ViewBag.Title = ViewBag.Tag;
+}
+
+<section id="blogHead">
+    <img src="~/Public/images/@Model.BlogHeader.Image" alt="">
+    <div class="blogLayout"></div>
+    <h1>BLOG</h1>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+</section>
+
+<section id="blogPart">
+    <h2 class="blogHeader">BLOG</h2>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+
+                    @for (int i = 0; i < Model.BlogToTags.Count; i++)
+                    {
+                        if (i % 2 != 0)
+                        {
+                            <div class="col-md-6 blogDiv blogImage couple">
+                                <img src="~/Public/images/@Model.BlogToTags[i].Blog.Image" alt="">
+                            </div>
+                            <div class="col-md-6 blogDiv blogTextDiv rightText">
+                                <h3><a href="">@Model.BlogToTags[i].Blog.Title</a></h3>
+                                <p class="admin"><a href=""><i class="fas fa-user"></i>  @Model.BlogToTags[i].Blog.User.Firstname</a></p>
+                                <p class="blogText">
+                                    @Model.BlogToTags[i].Blog.Content.Substring(0, 159)
+                                </p>
+                                <a class="readMore" href="@Url.Action("Single", "Blog", new { id = Model.BlogToTags[i].Blog.ID })">Read More >></a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col-md-6 blogDiv blogTextDiv leftText couple">
+                                <h3><a href="">@Model.BlogToTags[i].Blog.Title</a></h3>
+                                <p class="admin"><a href=""><i class="fas fa-user"></i> @Model.BlogToTags[i].Blog.User.Firstname</a></p>
+                                <p class="blogText">
+                                    @Model.BlogToTags[i].Blog.Content.Substring(0, 159)
+                                </p>
+                                <a class="readMore" href="@Url.Action("Single", "Blog", new { id = Model.BlogToTags[i].Blog.ID })">Read More >></a>
+                            </div>
+                            <div class="col-md-6 blogDiv blogImage">
+                                <img src="~/Public/images/@Model.BlogToTags[i].Blog.Image" alt="">
+                            </div>
+
+                        }
+                    }
+                    @if (Model.BlogToTags.Count() == 0)
+                    {
+                        <h2 style="text-align:center;color:red;font-size:2em;">There is no blog with that tags</h2>
+                    }
+
+                </div>
+
+            </div>
+
+           
+
+            <div class="col-md-4 recentPart">
+                <form method="post" action="/Blog/Search">
+                    <input type="text" placeholder="Search" required name="query">
+                    <button type="submit">
+                        <a style="color:black;" href="@Url.Action("Search","Blog")"><i class="fas fa-search"></i></a>
+                    </button>
+                </form>
+
+                <h3 class="recentHeader">RECENT POSTS</h3>
+
+                <div class="row">
+                    @foreach (var item in Model.RecentBlogViewModel.Blogs)
+                    {
+                        <div class="col-4 recentImgDiv">
+                            <img src="~/Public/images/@item.Image" alt="">
+                        </div>
+                        <div class="col-8 recentTextDiv">
+                            <h3>
+                                <a href="">@item.Title</a>
+                            </h3>
+                            <p>@item.Content.Substring(0, 50)</p>
+                            <a class="recentReadMore" href="">Read more</a>
+                        </div>
+                    }
+
+                </div>
+                <h2 style="margin-top:3%;" class="popularTags">POPULAR TAGS</h2>
+                <div class="spanDiv">
+                    @foreach (var item in Model.BlogTags)
+                    {
+                        <span class="tagSpan"><a href="@Url.Action("Tag", "Blog", new { tag =item.Tag })" rel="tag">#@item.Tag</a></span>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

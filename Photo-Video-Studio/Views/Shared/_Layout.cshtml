@@ -1,0 +1,165 @@
+﻿@using Photo_Video_Studio.Models
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cinemato Grapher-Home</title>
+    <link rel="shortcut icon" type="image/jpg" href="~/Public/images/favicon.jpg" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Public/css/style.css">
+    <link rel="stylesheet" href="~/Public/css/about.css">
+    <link rel="stylesheet" href="~/Public/css/service.css">
+    <link rel="stylesheet" href="~/Public/css/contact.css">
+    <link rel="stylesheet" href="~/Public/css/login.css">
+    <link rel="stylesheet" href="~/Public/css/register.css">
+    <link rel="stylesheet" href="~/Public/css/error.css">
+    <link rel="stylesheet" href="~/Public/css/news.css">
+    <link rel="stylesheet" href="~/Public/css/newsSingle.css">
+    <link rel="stylesheet" href="~/Public/css/blog.css">
+    <link rel="stylesheet" href="~/Public/css/blogSingle.css">
+    <link rel="stylesheet" href="~/Public/css/hire.css">
+    <link rel="stylesheet" href="~/Public/css/paersonal.css">
+    <link rel="stylesheet" href="~/Public/css/common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="~/Public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Public/css/owl.theme.default.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="nav">
+        <div class="container navcont">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="logo">
+                        <img src="~/Public/images/logo/logo.png" alt="">
+                        <button class="navButton"><i class="fas fa-bars"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="navbar">
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")">About</a></li>
+                        <li><a href="@Url.Action("Services","Home")">Services</a></li>
+                        <li><a href="@Url.Action("Index","News")">News</a></li>
+                        <li><a href="@Url.Action("Index","Blog")">Blog</a></li>
+                        <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                        @{
+                            User user = Session["user"] as User;
+                            Staff staff = Session["staff"] as Staff;
+                            if (user != null)
+                            {
+                                char letter = user.Firstname[0];
+                                <li class="userNameLi"><a href="@Url.Action("Index","Personal")" style="">@letter</a></li>
+                            }
+                            else if (staff != null)
+                            {
+                                char letter = staff.Firstname[0];
+                                <li class="userNameLi"><a href="@Url.Action("Index","Staffs")" style="">@letter</a></li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <ul class="responsiveNav">
+                        <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                        <li><a href="@Url.Action("About","Home")">About</a></li>
+                        <li><a href="@Url.Action("Services","Home")">Services</a></li>
+                        <li><a href="@Url.Action("Index","News")">News</a></li>
+                        <li><a href="@Url.Action("Index","Blog")">Blog</a></li>
+                        <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                        @{
+                            if (user == null)
+                            {
+                                <li><a href="@Url.Action("Login","Account")">Login</a></li>
+                            }
+                            else
+                            {
+                                char letter = user.Firstname[0];
+                                <li class="userNameLi"><a href="@Url.Action("Index","Personal")" style="">@letter</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    @RenderBody()
+
+
+
+    <div id="preloader">
+        <img src="~/Public/images/loader.gif">
+    </div>
+
+
+
+    <footer id="end">
+        <div class="container">
+            <div class="col-md-4 offset-md-4">
+                <a href=""><img src="~/Public/images/logo/logo.png" alt=""></a>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <p><a href=""><i class="fa fa-envelope"></i> Cinemato@gmail.com</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <a href="">
+                            <i class="fa fa-map-marker"></i> PO Box 16122 Collins Street West Victoria 8007
+                            Australia
+                        </a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <p><a href=""><i class="fa fa-phone"></i> +91 3333 222 111</a></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <span class="cinemato">©CINEMATO</span>
+            <ul>
+                <li><a href=""><i class="fab fa-facebook-square"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href=""><i class="fab fa-pinterest-square"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                <li><a href=""><i class="fab fa-skype"></i></a></li>
+                <li><a href=""><i class="fab fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Public/js/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+    <script src="~/Public/js/main.js"></script>
+    @RenderSection("script", false)
+    @RenderSection("scripts", false)
+
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+﻿@model Photo_Video_Studio.ViewModels.MailType
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post" action="/EmailSender/SendEmail">
+    <h1 style="text-align:center;font-size:1.6em;margin-bottom:3%;">Send email to studio staff</h1>
+    <input type="text" name="Subject" placeholder="Subject" required class="form-control" style="margin-bottom:3%;" />
+    <textarea type="text" name="Body" placeholder="Body" required class="form-control" style="margin-bottom:3%;"></textarea>
+    <input type="submit" value="Send" class="btn btn-success" style="margin-bottom:3%;" />
+</form>

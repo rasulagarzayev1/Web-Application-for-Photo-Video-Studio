@@ -1,0 +1,130 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#serviceHead {
+  position: relative;
+}
+#serviceHead img {
+  width: 100%;
+}
+#serviceHead .serviceLayout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.445);
+  height: 465px;
+}
+#serviceHead h1 {
+  color: #e5e5e54d;
+  font-size: 5em;
+  font-family: 'Archivo Black', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+#serviceHead .serviceSubtitle {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+#serviceHead .serviceSubtitle span {
+  font-weight: 1000;
+  color: #d50000;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #serviceHead img {
+    height: 170px;
+  }
+  #serviceHead .serviceLayout {
+    height: 170px;
+  }
+  #serviceHead h1 {
+    font-size: 2em;
+    top: 50%;
+    left: 25%;
+  }
+  #serviceHead .serviceSubtitle {
+    top: 56%;
+    left: 30%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #serviceHead img {
+    height: 270px;
+  }
+  #serviceHead .serviceLayout {
+    height: 270px;
+  }
+  #serviceHead h1 {
+    font-size: 5em;
+    top: 30%;
+    left: 25%;
+  }
+  #serviceHead .serviceSubtitle {
+    top: 40%;
+    left: 35%;
+    font-size: 2em;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+  #serviceHead img {
+    height: 270px;
+  }
+  #serviceHead .serviceLayout {
+    height: 270px;
+  }
+  #serviceHead h1 {
+    font-size: 5em;
+    top: 30%;
+    left: 25%;
+  }
+  #serviceHead .serviceSubtitle {
+    top: 40%;
+    left: 35%;
+    font-size: 2em;
+  }
+}
+#error {
+  font-family: 'Montserrat', sans-serif;
+  margin: 7% 0;
+}
+#error img {
+  width: 100%;
+}
+#error h2 {
+  font-size: 2em;
+}
+#error h4 {
+  font-weight: bold;
+  padding: 3% 0;
+}
+#error p {
+  line-height: 1.7em;
+  color: #777777;
+}
+#error p a {
+  color: #777777;
+  transition: all 1s ease-in-out;
+}
+#error p a:hover {
+  color: #d50000;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #error img {
+    width: 100%;
+  }
+  #error h2 {
+    font-size: 1.6em;
+  }
+}
+
+/*# sourceMappingURL=error.css.map */

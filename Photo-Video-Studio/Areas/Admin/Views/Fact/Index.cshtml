@@ -1,0 +1,52 @@
+﻿@model Photo_Video_Studio.Models.Fact
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExperienceTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectsTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientsTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AwardsTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            <img src="~/Public/images/@Model.Image" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ExperienceTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ProjectsTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ClientsTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.AwardsTitle)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Fact", new { id =Model.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+            <a href="@Url.Action("Details", "Fact", new { id =Model.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>
+        </td>
+    </tr>
+
+</table>

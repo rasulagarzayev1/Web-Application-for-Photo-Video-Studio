@@ -1,0 +1,111 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model AboutViewModel
+
+@{
+    ViewBag.Title = "About Page";
+}
+
+<section id="about">
+    <img src="~/Public/images/@Model.AboutHeader.Image" alt="">
+    <div class="aboutLayout"></div>
+    <h1>ABOUT</h1>
+    <p class="aboutSubtitle"><span>About</span> Us</p>
+</section>
+
+
+<main id="aboutUs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 aboutImg pull-right">
+                <img src="~/Public/images/@Model.About.Image" alt="">
+            </div>
+            <div class="col-md-6 aboutTextPart">
+                <h1>ABOUT ME</h1>
+                <p class="creativeP"><span>Creative</span> Studio</p>
+                <p class="firstSubtitle aboutSubtitles">
+                    @Model.About.FirstTextPart
+                </p>
+                <p class="secondSubtitle aboutSubtitles">
+                    @Model.About.SecondTextPart
+                </p>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+<section id="team">
+    <h2>TEAM</h2>
+    <p class="teamSubtitle"><span>Our</span> Team</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var team in Model.Teams)
+            {
+                <div class="col-md-3">
+                    <div class="teamDiv">
+                        <img src="~/Public/images/@team.Image" alt="">
+                        <h3>@team.FullName</h3>
+                        <p>@team.Job</p>
+                        <hr>
+                        <span><i class="fab fa-twitter"></i></span>
+                        <span><i class="fab fa-facebook-f"></i></span>
+                        <span><i class="fab fa-google-plus-g"></i></span>
+                        <span><i class="fab fa-linkedin-in"></i></span>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+<section id="clients">
+    <div class="container">
+        <h2>TESTIMONIAL</h2>
+        <p class="clientSays"><span>Client</span> Says</p>
+        <div id="carousel-1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                @foreach (var slide in Model.ClientSliders)
+                {
+                    <div class="carousel-item active clientSlide">
+                        <img class="clientImage" src="~/Public/images/@slide.Image" alt="">
+                        <h3>@slide.Title</h3>
+                        <p class="clientSayings">
+                            @slide.Subtitle
+                        </p>
+                        <p class="cinematoP">Cinemato</p>
+                    </div>
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                <i class="fas fa-chevron-left SliderControl leftSliderControl"></i>
+            </a>
+            <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                <i class="fas fa-chevron-right SliderControl rightSliderControl"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="partner">
+    <h2>Partner</h2>
+    <p class="partnerSubtitle"><span>Our</span> Partner</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var partner in Model.Partners)
+            {
+                <div class="col-md-3">
+                    <a href="">
+                        <img src="~/Public/images/@partner.Image" alt="">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>

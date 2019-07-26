@@ -1,0 +1,132 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model PersonalViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section id="PersonalHeader">
+    <div class="col-12 forImage">
+
+            <div class="userImage">
+                <span><a href="@Url.Action("Edit","Account", new { id = Model.User.ID })"><i class="fas fa-edit" title="Edit User Info"></i></a></span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png" alt="">
+                <span><a href="@Url.Action("Logout","Account")" title="Log out"><i class="fas fa-sign-out-alt"></i></a></span>
+                <p>@Model.User.Firstname @Model.User.Lastname</p>
+            </div>
+    </div>
+</section>
+
+<main id="main">
+    <div class="container">
+            <div class="collapseTexts">
+                <span id="blogClick" >Your Blogs</span>
+                <span id="orderClick" >Your Orders</span>
+            </div>
+            <div id="blogPart" class="myBlogs">
+                <div id="blogToggle" class="col-md-8 offset-md-2 ">
+                    <div class="row">
+                        <div class="col-12">
+                            <p style="width:100%;padding-bottom:3%;">
+                                <a  style="width:100%;" href="Blog/Create" class="btn btn-outline-success">Create</a>
+                            </p>
+                        </div>
+                        
+                        @for (int i = 0; i < Model.UserBlogs.Count; i++)
+                        {
+                            if (i % 2 != 0)
+                            {
+                                <div class="col-md-6 blogDiv blogImage couple">
+                                    <img src="~/Public/images/@Model.UserBlogs[i].Image" alt="">
+                                </div>
+                                <div class="col-md-6 blogDiv blogTextDiv rightText">
+                                    <h3><a href="">@Model.UserBlogs[i].Title</a></h3>
+                                    <p class="admin"><a href=""><i class="fas fa-user"></i> @Model.UserBlogs[i].User.Firstname</a></p>
+                                    <p class="blogText">
+                                        @Model.UserBlogs[i].Content.Substring(0, 159)
+                                    </p>
+                                    <a class="readMore" href="@Url.Action("Single", "Blog", new { id = Model.UserBlogs[i].ID })">Read More >></a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="col-md-6 blogDiv blogTextDiv leftText couple">
+                                    <h3><a href="">@Model.UserBlogs[i].Title</a></h3>
+                                    <p class="admin"><a href=""><i class="fas fa-user"></i> @Model.UserBlogs[i].User.Firstname</a></p>
+                                    <p class="blogText">
+                                        @Model.UserBlogs[i].Content.Substring(0, 159)
+                                    </p>
+                                    <a class="readMore" href="@Url.Action("Single", "Blog", new { id = Model.UserBlogs[i].ID })">Read More >></a>
+                                </div>
+                                <div class="col-md-6 blogDiv blogImage">
+                                    <img src="~/Public/images/@Model.UserBlogs[i].Image" alt="">
+                                </div>
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="tablePart">
+
+                    @if (Model.StudioOrders.Count > 0)
+                    {
+                        <table id="table1" class="table table-hover  ">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Order Date</th>
+                                    <th scope="col">Order Type</th>
+                                    <th scope="col">Rented</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.StaffOrders)
+                                {
+                                    <tr>
+                                        <td>@item.OrderDate.Value.ToString("MMMM dd, yyyy")</td>
+                                        <td>@item.OrderType.OrderType1</td>
+                                        <td>@item.Staff.Firstname @item.Staff.Lastname</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>You have not got any orders</p>
+                    }
+
+
+
+                    @if (Model.StudioOrders.Count > 0) 
+                    {
+                        <table id="table2" class="table table-hover  ">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Order Date</th>
+                                    <th scope="col">Order Type</th>
+                                    <th scope="col">Rented</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.StudioOrders)
+                                {
+                                    <tr>
+                                        <td>@item.OrderDate.Value.ToString("MMMM dd, yyyy")</td>
+                                        <td>@item.OrderType.OrderType1</td>
+                                        <td>Studio</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>You have not got any orders</p>
+                    }
+                </div>
+            </div>
+        </div>
+</main>

@@ -1,0 +1,91 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model BlogViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="blogHead">
+    <img src="~/Public/images/@Model.BlogHeader.Image" alt="">
+    <div class="blogLayout"></div>
+    <h1>BLOG</h1>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+</section>
+
+<section id="blogPart">
+    <h2 class="blogHeader">BLOG</h2>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row blogRow">
+                    @Html.Partial("_PartialBlog", Model.Blogs)
+                </div>
+
+            </div>
+
+            <div class="col-md-4 recentPart">
+                <form method="post" action="/Blog/Search">
+                    <input type="text" placeholder="Search" required name="query">
+                    <button type="submit">
+                        <a style="color:black;" href="@Url.Action("Search","Blog")"><i class="fas fa-search"></i></a>
+                    </button>
+                </form>
+
+
+                <h3 class="recentHeader">RECENT POSTS</h3>
+
+                <div class="row">
+                    @foreach (var item in Model.RecentBlogViewModel.Blogs)
+                    {
+                        <div class="col-4 recentImgDiv">
+                            <img src="~/Public/images/@item.Image" alt="">
+                        </div>
+                        <div class="col-8 recentTextDiv">
+                            <h3>
+                                <a href="">@item.Title</a>
+                            </h3>
+                            <p>@item.Content.Substring(0, 50)</p>
+                            <a class="recentReadMore" href="">Read more</a>
+                        </div>
+                    }
+
+                </div>
+                <h2 style="margin-top:3%;" class="popularTags">POPULAR TAGS</h2>
+                <div class="spanDiv">
+                    @foreach (var item in Model.BlogTags)
+                    {
+                        <span class="tagSpan"><a href="@Url.Action("Tag", "Blog", new { tag =item.Tag })" rel="tag">#@item.Tag</a></span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section script{
+    <script>
+        var skipCount = 3;
+
+        var scrollLoadFunction = function () {
+            if ($(document).height() - $(window).scrollTop() - $(window).height() < 200) {
+                $.ajax({
+                    url: "/AJAX/LoadBlogs",
+                    type: "GET",
+                    data: { skip: skipCount },
+                    success: function (res) {
+                        if (res.trim().length != 0) {
+                            skipCount += 2;
+
+                            $(".blogRow").append(res);
+                        }
+                        else{
+                            window.removeEventListener("scroll", scrollLoadFunction);
+                        }
+                    }
+                })
+            }
+        }
+
+        window.addEventListener("scroll", scrollLoadFunction);
+    </script>
+}

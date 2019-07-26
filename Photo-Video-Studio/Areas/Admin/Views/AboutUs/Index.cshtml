@@ -1,0 +1,43 @@
+﻿@model Photo_Video_Studio.Models.About
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            First Text Part
+        </th>
+        <th>
+            Second Text Part
+        </th>
+        <th></th>
+        <th></th>
+     </tr>
+    <tr>
+        <td>
+            <img src="~/Public/images/@Model.Image" alt="Alternate Text" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.FirstTextPart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.SecondTextPart)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "AboutUS", new { id =Model.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>
+            <a href="@Url.Action("Details", "AboutUS", new { id =Model.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>
+
+        </td>
+    </tr>
+
+
+
+</table>

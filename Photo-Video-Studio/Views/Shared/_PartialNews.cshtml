@@ -1,0 +1,39 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model NewsViewModel
+
+@foreach (var item in Model.News)
+{
+    <div class="col-md-5 offset-md-1  imgDiv">
+        <div class="col-12 imgDivInner">
+            <img src="~/Public/images/@item.Image" alt="">
+            <div class="layout"></div>
+        </div>
+        <p>
+            @item.UpdatedAt.Value.ToString("MMMM dd, yyyy")
+        </p>
+        <ul>
+            @foreach (var tag in Model.NewsToTags)
+            {
+                if (tag.NewsID == item.ID)
+                {
+                    <li><a href="@Url.Action("Tag", "News", new { tag =tag.NewsTag.Tag })" rel="tag">#@tag.NewsTag.Tag</a></li>
+                }
+            }
+            <li>/</li>
+            @if (Model.NewsComments != null && Model.NewsComments.Count > 0) 
+            {
+                <li>Comments:@Model.NewsComments.Count</li>
+            }
+            else
+            {
+                <li>Comments:0</li>
+            }
+        </ul>
+        <hr>
+        <h4>@item.Title</h4>
+        <p>
+            @item.Description.Substring(0, 180)
+        </p>
+        <a class="readMore" href=" @Url.Action("Single", "News", new { id = item.ID })"> Read More</a>
+    </div>
+}

@@ -1,0 +1,231 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model BlogSingleViewModel
+@{
+    ViewBag.Title = "Single";
+}
+
+<section id="blogHead">
+    <img src="~/Public/images/@Model.BlogHeader.Image" alt="">
+    <div class="blogLayout"></div>
+    <h1>BLOG</h1>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+</section>
+
+
+<section id="singleBlog">
+    <h2 class="blogHeader">BLOG</h2>
+    <p class="blogSubtitle"><span>Our</span> Blog</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-12">
+                    <img src="~/Public/images/@Model.Blog.Image" alt="">
+                </div>
+                <div class="col-12 singleText">
+                    <h2 class="blogName">@Model.Blog.Title</h2>
+                    <h3 class="blogUser"><a href="@Url.Action("Author", "Blog", new { author = @Model.Blog.User.Firstname})" rel="author"><i class="fas fa-user"></i> By @Model.Blog.User.Firstname @Model.Blog.User.Lastname</a></h3>
+                    @if ((Photo_Video_Studio.Models.User)Session["user"] != null && Model.Blog.User.ID == ((Photo_Video_Studio.Models.User)Session["user"]).ID)
+                    {
+                        <a href="@Url.Action("Edit", "Blog", new { id = Model.Blog.ID })" class="btn btn-dark"><i class="far fa-edit"></i></a>
+                        <a href="@Url.Action("Delete", "Blog", new { id = Model.Blog.ID })" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                    }
+                    <p class="blogP">
+                        @Model.Blog.Content
+                    </p>
+
+                    @if ((Photo_Video_Studio.Models.User)Session["user"] != null)
+                    {
+                        Photo_Video_Studio.Models.User user = Session["user"] as Photo_Video_Studio.Models.User;
+                        Photo_Video_Studio.Models.Like like = Model.Likes.Where(l => l.UserID == user.ID).FirstOrDefault();
+
+
+                        if (like != null)
+                        {
+                            <p style="padding-top:3%;">
+                                <span class="likeSpan"><i class="fas fa-thumbs-up likeIcon"></i></span> <span id="likeCount"> @Model.Likes.Count()</span><span>Likes</span>
+                                <input type="hidden" value="1" id="isLiked" />
+                            </p>
+                            <style>
+                                .likeIcon {
+                                    color: red;
+                                }
+                            </style>
+                        }
+                        else
+                        {
+                            <p style="padding-top:3%;">
+                                <span class="likeSpan"><i class="fas fa-thumbs-up likeIcon"></i></span><span id="likeCount">@Model.Likes.Count()</span><span>Likes</span>
+                                <input type="hidden" value="0" id="isLiked" />
+                                <style>
+                                    .likeSpan:hover .likeIcon {
+                                        color: red;
+                                        cursor: pointer;
+                                    }
+                                </style>
+                            </p>
+                        }
+
+
+                        <input type="hidden" value="@(like?.ID)" id="LikeID" />
+
+                    }
+                    else
+                    {
+                        <p style="padding-top:3%;">
+                            <span ><i class="fas fa-thumbs-up likeIcon1"></i></span><span id="likeCount">@Model.Likes.Count()</span><span>Likes</span>
+                            <style>
+                                .likeSpan:hover .likeIcon1 {
+                                    color: red;
+                                    cursor: pointer;
+                                }
+                            </style>
+                        </p>
+                    }
+
+
+
+
+
+
+                    <div class="col-12 commetPart">
+                        <h2 class="commentsHeader">COMMENTS:</h2>
+                        <div class="row commentSection">
+                            @foreach (var item in Model.BlogComments)
+                            {
+                                <div class="col-3">
+                                    <img src="~/Public/images/user.png" alt="">
+                                </div>
+                                <div class="col-9">
+                                    <h2 class="commentUser">@item.User.Firstname @item.User.Lastname <span class="commetDate">@item.CommentDate.Value.ToString("MMMM dd, yyyy")</span></h2>
+                                    <p class="commentText">
+                                        @item.Content
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                        <input type="hidden" value="@Model.Blog.ID" id="forBlogID" />
+                        <textarea class="commentContent" name="comment" id="" cols="100" rows="5" placeholder="Write a comment"></textarea>
+                        <button style="outline:none;border:none;" id="writeComment" class="postComment">Post Comment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 recentPart">
+                <form method="post" action="/Blog/Search">
+                    <input type="text" placeholder="Search" required name="query">
+                    <button type="submit">
+                        <a style="color:black;" href="@Url.Action("Search","Blog")"><i class="fas fa-search"></i></a>
+                    </button>
+                </form>
+
+                <h3 class="recentHeader">RECENT POSTS</h3>
+
+                <div class="row">
+                    @foreach (var item in Model.RecentBlogVM.Blogs)
+                    {
+                        <div class="col-4 recentImgDiv">
+                            <img src="~/Public/images/@item.Image" alt="">
+                        </div>
+                        <div class="col-8 recentTextDiv">
+                            <h3>
+                                <a href="@Url.Action("Single", "Blog", new { id = item.ID })">@item.Title</a>
+                            </h3>
+                            <p>@item.Content.Substring(0, 50)</p>
+                            <a class="recentReadMore" href="@Url.Action("Single", "Blog", new { id = item.ID })">Read more</a>
+                        </div>
+                    }
+                </div>
+                <h2 class="popularTags">BLOG's TAGS</h2>
+                <div class="spanDiv">
+                    @foreach (var item in Model.BlogTags)
+                    {
+                        <span class="tagSpan"><a href="@Url.Action("Tag", "Blog", new { tag =item.Tag })" rel="tag">#@item.Tag</a></span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section script{
+    <script>
+        $(function () {
+
+            var commentCont = $(".commentContent");
+            var postID = $("#forBlogID");
+            var writeComment = $("#writeComment");
+
+            $(document).on("click", "#writeComment", function () {
+
+                if (commentCont.val() != "") {
+                    $.ajax({
+                        url: "/AJAX/CreateComment",
+                        data: { content: commentCont.val(), blogID: postID.val() },
+                        type: "POST",
+                        datatype: "HTML",
+                        success: function (res) {
+                            console.log(res);
+                            $(".commentSection").append(res);
+                        }
+
+                    })
+                }
+
+            })
+
+        })
+
+        $(function () {
+
+            var likeSpan = $(".likeSpan");
+            var postID = $("#forBlogID");
+            var likeIcon = $(".likeIcon");
+            //var LikeID = $("#LikeID");
+            $(document).on("click", ".likeIcon", function () {
+                if ($("#isLiked").val() == 0) {
+                    var likeCount = parseInt($("#likeCount").text());
+                    $.ajax({
+                        url: "/AJAX/LikeBlog",
+                        data: { blogID: postID.val() },
+                        type: "POST",
+                        datatype: "json",
+                        success: function (res) {
+                            console.log(res);
+                            $(".likeIcon").css("color", "red");
+                            $("#isLiked").val(1);
+                            ++likeCount;
+                            console.log(likeCount)
+                            $("#LikeID").val(res);
+                            $("#likeCount").text(likeCount);
+                            console.log($("#LikeID").val());
+                        }
+
+                    })
+                }
+                else {
+                    var likeCount = parseInt($("#likeCount").text());
+                    $.ajax({
+                        url: "/AJAX/DisLikeBlog",
+                        data: { likeID:$("#LikeID").val() },
+                        type: "GET",
+                        datatype: "json",
+                        success: function (res) {
+                            console.log(res);
+                            $(".likeIcon").css("color", "black");
+                            $("#isLiked").val(0);
+                            --likeCount;
+                            console.log(likeCount)
+                            $("#likeCount").text(likeCount);
+
+                        }
+
+                    })
+                }
+                
+            })
+
+        })
+
+
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@model Photo_Video_Studio.Models.RegisterHeader
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            <img src="~/Public/images/@Model.Image" alt="Alternate Text" />
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Register", new { id =Model.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+        </td>
+    </tr>
+
+
+</table>

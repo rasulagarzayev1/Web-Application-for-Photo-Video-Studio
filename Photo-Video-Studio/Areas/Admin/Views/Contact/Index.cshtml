@@ -1,0 +1,51 @@
+﻿@model Photo_Video_Studio.Models.Contact
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="Contact/Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skype)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Skype)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Contact", new { id =Model.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+            <a href="@Url.Action("Details", "COntact", new { id =Model.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>|
+            <a href="@Url.Action("Delete", "Contact", new { id =Model.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>|
+
+        </td>
+    </tr>
+
+
+</table>

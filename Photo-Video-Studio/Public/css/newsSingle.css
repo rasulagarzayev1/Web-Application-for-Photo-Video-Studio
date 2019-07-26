@@ -1,0 +1,482 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#newsHead {
+  position: relative;
+}
+#newsHead img {
+  width: 100%;
+}
+#newsHead .newsLayout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.445);
+  height: 462px;
+}
+#newsHead h1 {
+  color: #e5e5e5b7;
+  font-size: 5em;
+  font-family: 'Archivo Black', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 43%;
+}
+#newsHead .newsSubtitle {
+  position: absolute;
+  top: 56%;
+  left: 48%;
+  font-size: 1.3em;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+#newsHead .newsSubtitle span {
+  font-weight: 1000;
+  color: #d50000;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #newsHead img {
+    height: 170px;
+  }
+  #newsHead .newsLayout {
+    height: 170px;
+  }
+  #newsHead h1 {
+    font-size: 3em;
+    top: 50%;
+    left: 25%;
+  }
+  #newsHead .newsSubtitle {
+    top: 60%;
+    left: 36%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #newsHead img {
+    height: 270px;
+  }
+  #newsHead .newsLayout {
+    height: 270px;
+  }
+  #newsHead h1 {
+    font-size: 4em;
+    top: 50%;
+    left: 40%;
+  }
+  #newsHead .newsSubtitle {
+    top: 60%;
+    left: 49%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+  #newsHead img {
+    height: 270px;
+  }
+  #newsHead .newsLayout {
+    height: 270px;
+  }
+  #newsHead h1 {
+    font-size: 4em;
+    top: 50%;
+    left: 40%;
+  }
+  #newsHead .newsSubtitle {
+    top: 60%;
+    left: 49%;
+    font-size: 1em;
+  }
+}
+#singleNews {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+#singleNews .newsHeader {
+  text-align: center;
+  color: #e5e5e5;
+  font-size: 5.5em;
+  font-family: 'Archivo Black', sans-serif;
+  padding-bottom: 4%;
+}
+#singleNews .newsSubtitle {
+  position: absolute;
+  top: 2.5%;
+  left: 45%;
+  font-size: 1.7em;
+  font-family: 'Montserrat', sans-serif;
+}
+#singleNews .newsSubtitle span {
+  color: #d50000;
+  font-weight: 900;
+  font-family: 'Archivo Black', sans-serif;
+}
+#singleNews img {
+  width: 100%;
+}
+#singleNews .singleText .newsName {
+  padding: 4% 0 2% 0;
+  font-size: 1.7em;
+  font-weight: bold;
+  transition: all 1s ease-in-out;
+}
+#singleNews .singleText .newsName:hover {
+  cursor: pointer;
+  color: #d50000;
+}
+#singleNews .singleText .newsUser {
+  padding-block-end: 3%;
+}
+#singleNews .singleText .newsUser a {
+  color: black;
+  text-decoration: none;
+  transition: all 1s ease-in-out;
+  font-size: 1em;
+}
+#singleNews .singleText .newsUser a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #d50000;
+}
+#singleNews .singleText .newsP {
+  color: #777777;
+  line-height: 1.7em;
+}
+#singleNews .singleText .commetPart {
+  padding: 5% 0;
+}
+#singleNews .singleText .commetPart .commentsHeader {
+  padding: 4% 0;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+#singleNews .singleText .commetPart img {
+  width: 70%;
+  border-radius: 100%;
+}
+#singleNews .singleText .commetPart .commentUser {
+  font-weight: bolder;
+  color: #d50000;
+  padding-bottom: 1%;
+}
+#singleNews .singleText .commetPart .commentUser span {
+  color: black;
+}
+#singleNews .singleText .commetPart .commentText {
+  font-size: 0.9em;
+  line-height: 1.7em;
+  color: #777777;
+}
+#singleNews .singleText .commetPart textarea {
+  margin-top: 3%;
+}
+#singleNews .singleText .commetPart .postComment {
+  display: inline-block;
+  margin-top: 4%;
+  padding: 2%;
+  background-color: #777777;
+  color: white;
+  text-decoration: none;
+  transition: all 1s ease-in-out;
+}
+#singleNews .singleText .commetPart .postComment:hover {
+  background-color: #d50000;
+}
+#singleNews .recentPart input {
+  margin-left: 8%;
+  padding: 3%;
+  border: 1px solid rgba(26, 25, 25, 0.253);
+  margin-right: -4px;
+  border-right: transparent;
+}
+#singleNews .recentPart button {
+  padding: 3.71%;
+  border: transparent;
+  transition: all 1s ease-in;
+}
+#singleNews .recentPart button:hover {
+  cursor: pointer;
+  background-color: #d50000;
+}
+#singleNews .recentPart button:hover i {
+  color: white;
+}
+#singleNews .recentPart .recentHeader {
+  margin-left: 7.5%;
+  padding-top: 10%;
+  padding-bottom: 4%;
+  font-weight: bold;
+}
+#singleNews .recentPart .recentImgDiv {
+  margin-bottom: 5%;
+}
+#singleNews .recentPart .recentImgDiv img {
+  width: 80%;
+  margin-left: 28%;
+}
+#singleNews .recentPart .recentTextDiv h3 a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 1s ease-in;
+}
+#singleNews .recentPart .recentTextDiv h3 a:hover {
+  color: #d50000;
+}
+#singleNews .recentPart .recentTextDiv p {
+  font-size: 0.8em;
+  line-height: 1.4em;
+}
+#singleNews .recentPart .recentTextDiv .recentReadMore {
+  color: #d50000;
+  padding-top: 3%;
+  display: inline-block;
+}
+#singleNews .recentPart .recentTextDiv .recentReadMore:hover {
+  text-decoration: none;
+}
+#singleNews .recentPart .popularTags {
+  margin-left: 5%;
+  margin-top:2%;
+}
+#singleNews .recentPart .spanDiv {
+  margin-left: 5%;
+}
+#singleNews .recentPart .spanDiv .tagSpan {
+  background-color: #eee;
+  padding: 3%;
+  display: inline-block;
+  margin-top: 2%;
+  transition: all 1s ease-in-out;
+}
+#singleNews .recentPart .spanDiv .tagSpan a {
+  color: black;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  #singleNews .newsSubtitle {
+    top: 1.5%;
+    left: 33%;
+  }
+  #singleNews .singleText .newsName {
+    padding: 4% 0 2% 0;
+    font-size: 1.7em;
+    font-weight: bold;
+    transition: all 1s ease-in-out;
+  }
+  #singleNews .singleText .newsUser {
+    padding-block-end: 3%;
+  }
+  #singleNews .singleText .newsUser a {
+    font-size: 1em;
+  }
+  #singleNews .singleText .newsP {
+    font-size: 0.7em;
+  }
+  #singleNews .singleText .commetPart {
+    padding: 5% 0;
+  }
+  #singleNews .singleText .commetPart .commentsHeader {
+    padding: 4% 0;
+    font-size: 1.6em;
+  }
+  #singleNews .singleText .commetPart img {
+    width: 70%;
+  }
+  #singleNews .singleText .commetPart .commentUser {
+    padding-bottom: 1%;
+  }
+  #singleNews .singleText .commetPart .commentText {
+    font-size: 0.6em;
+  }
+  #singleNews .singleText .commetPart textarea {
+    margin-top: 3%;
+    width: 100%;
+  }
+  #singleNews .singleText .commetPart .postComment {
+    margin-top: 4%;
+    padding: 2%;
+  }
+  #singleNews .recentPart input {
+    margin-left: 8%;
+    padding: 3%;
+    border: 1px solid rgba(26, 25, 25, 0.253);
+    margin-right: -4px;
+    border-right: transparent;
+  }
+  #singleNews .recentPart button {
+    padding: 3.71%;
+    border: transparent;
+    transition: all 1s ease-in;
+  }
+  #singleNews .recentPart button:hover {
+    cursor: pointer;
+    background-color: #d50000;
+  }
+  #singleNews .recentPart button:hover i {
+    color: white;
+  }
+  #singleNews .recentPart .recentHeader {
+    margin-left: 7.5%;
+    padding-top: 10%;
+    padding-bottom: 4%;
+    font-weight: bold;
+  }
+  #singleNews .recentPart .recentImgDiv {
+    margin-bottom: 5%;
+  }
+  #singleNews .recentPart .recentImgDiv img {
+    width: 90%;
+    margin-left: 28%;
+  }
+  #singleNews .recentPart .recentTextDiv h3 a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 1s ease-in;
+  }
+  #singleNews .recentPart .recentTextDiv h3 a:hover {
+    color: #d50000;
+  }
+  #singleNews .recentPart .recentTextDiv p {
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+  #singleNews .recentPart .recentTextDiv .recentReadMore {
+    color: #d50000;
+    padding-top: 3%;
+    display: inline-block;
+  }
+  #singleNews .recentPart .recentTextDiv .recentReadMore:hover {
+    text-decoration: none;
+  }
+  #singleNews .recentPart .popularTags {
+    margin-left: 5%;
+  }
+  #singleNews .recentPart .spanDiv {
+    margin-left: 5%;
+  }
+  #singleNews .recentPart .spanDiv .tagSpan {
+    padding: 3%;
+    margin-top: 2%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #singleNews .newsSubtitle {
+    top: 2.5%;
+    left: 42%;
+  }
+  #singleNews .singleText .newsName {
+    padding: 4% 0 2% 0;
+    font-size: 1.7em;
+    font-weight: bold;
+    transition: all 1s ease-in-out;
+  }
+  #singleNews .singleText .newsUser {
+    padding-block-end: 3%;
+  }
+  #singleNews .singleText .newsUser a {
+    font-size: 1em;
+  }
+  #singleNews .singleText .newsP {
+    font-size: 0.7em;
+  }
+  #singleNews .singleText .commetPart {
+    padding: 5% 0;
+  }
+  #singleNews .singleText .commetPart .commentsHeader {
+    padding: 4% 0;
+    font-size: 1.6em;
+  }
+  #singleNews .singleText .commetPart img {
+    width: 70%;
+  }
+  #singleNews .singleText .commetPart .commentUser {
+    padding-bottom: 1%;
+  }
+  #singleNews .singleText .commetPart .commentText {
+    font-size: 0.6em;
+  }
+  #singleNews .singleText .commetPart textarea {
+    margin-top: 3%;
+    width: 100%;
+  }
+  #singleNews .singleText .commetPart .postComment {
+    margin-top: 4%;
+    padding: 2%;
+  }
+  #singleNews .recentPart input {
+    margin-left: 4%;
+    padding: 3%;
+    border: 1px solid rgba(26, 25, 25, 0.253);
+    margin-right: -4px;
+    border-right: transparent;
+    width: 76%;
+  }
+  #singleNews .recentPart button {
+    padding: 3.71%;
+    border: transparent;
+    transition: all 1s ease-in;
+  }
+  #singleNews .recentPart button:hover {
+    cursor: pointer;
+    background-color: #d50000;
+  }
+  #singleNews .recentPart button:hover i {
+    color: white;
+  }
+  #singleNews .recentPart .recentHeader {
+    margin-left: 7.5%;
+    padding-top: 10%;
+    padding-bottom: 4%;
+    font-weight: bold;
+  }
+  #singleNews .recentPart .recentImgDiv {
+    margin-bottom: 5%;
+  }
+  #singleNews .recentPart .recentImgDiv img {
+    width: 90%;
+    margin-left: 28%;
+  }
+  #singleNews .recentPart .recentTextDiv h3 {
+    font-size: 0.8em;
+  }
+  #singleNews .recentPart .recentTextDiv h3 a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 1s ease-in;
+  }
+  #singleNews .recentPart .recentTextDiv h3 a:hover {
+    color: #d50000;
+  }
+  #singleNews .recentPart .recentTextDiv p {
+    font-size: 0.6em;
+    line-height: 1.4em;
+  }
+  #singleNews .recentPart .recentTextDiv .recentReadMore {
+    color: #d50000;
+    padding-top: 3%;
+    display: inline-block;
+  }
+  #singleNews .recentPart .recentTextDiv .recentReadMore:hover {
+    text-decoration: none;
+  }
+  #singleNews .recentPart .popularTags {
+    margin-left: 5%;
+  }
+  #singleNews .recentPart .spanDiv {
+    margin-left: 5%;
+  }
+  #singleNews .recentPart .spanDiv .tagSpan {
+    padding: 3%;
+    margin-top: 2%;
+  }
+}
+
+/*# sourceMappingURL=newsSingle.css.map */

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Photo_Video_Studio.Models.Staff>
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <a href="@Url.Action("Create","Staff")" class="btn btn-success">Create New</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AsPhotograph)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AsVideograph)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsPhotograph)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsVideograph)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+    
+            <td>
+                <a href="@Url.Action("Edit", "Staff", new { id =item.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+                <a href="@Url.Action("Details", "Staff", new { id =item.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>|
+                <a href="@Url.Action("Delete", "Staff", new { id =item.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

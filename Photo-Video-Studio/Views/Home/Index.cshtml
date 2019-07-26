@@ -1,0 +1,357 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+<section id="mainSlider">
+    <div class="owl-carousel owl-theme">
+
+        @foreach (var slider in Model.MainSliders)
+        {
+            <div class="item sliderItem">
+                <img src="~/Public/images/mainslider/@slider.Image" alt="">
+                <div class="sliderLayout"></div>
+                <div class="row sliderText">
+                    <div class="col-1 rotateHeader">
+                        <h2>@slider.RotateHeader</h2>
+                    </div>
+                    <div class="col-8 subtitleText">
+                        <p>@slider.Subtitle</p>
+                        <h2 class="virtual">@slider.MainTitle</h2>
+                        <a href="@Url.Action("Index","Hiring")" class="hire">Hire Us Now</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+
+
+<main id="aboutUs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 aboutImg pull-right">
+                <img src="~/Public/images/@Model.About.Image" alt="">
+            </div>
+            <div class="col-md-6 aboutTextPart">
+                <h1>ABOUT ME</h1>
+                <p class="creativeP"><span>Creative</span> Studio</p>
+                <p class="firstSubtitle aboutSubtitles">
+                    @Model.About.FirstTextPart
+                </p>
+                <p class="secondSubtitle aboutSubtitles">
+                    @Model.About.SecondTextPart
+                </p>
+                <a href="@Url.Action("About","Home")">Learn More</a>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+
+
+<section id="services">
+    <div class="container-fluid serviceDiv">
+        <div class="row">
+            <div class="col-md-4 imgDiv">
+                <img src="~/Public/images/service1.jpg" alt="">
+                <div class="imgLayout"></div>
+                <h2>SERVICES</h2>
+                <p><span><b>Our</b></span> Services</p>
+            </div>
+            <div class="col-md-8 servicePart">
+                <div class="row">
+                    <div class="col-md-4 services firstService upperService">
+                        <i class="fa fa-camera"></i>
+                        <h2>Photo Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services secondService upperService">
+                        <i class="fa fa-film"></i>
+                        <h2>Movie Clapper</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services thirdService upperService">
+                        <i class="far fa-image"></i>
+                        <h2>Images Interface</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fourthService">
+                        <i class="far fa-file-video"></i>
+                        <h2>Film Roll</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services fifthService">
+                        <i class="far fa-file-image"></i>
+                        <h2>Camera Diaphragm</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                    <div class="col-md-4 services sixthService">
+                        <i class="fas fa-video"></i>
+                        <h2>Video Camera</h2>
+                        <p>There are many variations passages of Lorem Ipsum available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="videos">
+    <h2 class="videoHeader">VIDEOS</h2>
+    <p class="videoSubtitle"><span>Featured</span> Videos</p>
+    <div class="loop owl-carousel owl-theme videoSlider">
+
+        @foreach (var video in Model.Videos)
+        {
+            <div class="item sliderItem">
+                <img class="videoImage" src="~/Public/images/@video.Image" alt="">
+                <div class="videoSliderLayout">
+                    <div class="borderedLayout">
+                        <i class="far fa-play-circle playVideo"></i>
+                    </div>
+                </div>
+                <iframe class="iframeVideo item" src="@video.VideoLink"></iframe>
+            </div>
+        }
+    </div>
+
+</section>
+
+
+
+
+<section id="clients">
+    <div class="container">
+        <h2>TESTIMONIAL</h2>
+        <p class="clientSays"><span>Client</span> Says</p>
+        <div id="carousel-1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                @foreach (var slide in Model.ClientSliders)
+                {
+                    <div class="carousel-item active clientSlide">
+                        <img class="clientImage" src="~/Public/images/@slide.Image" alt="">
+                        <h3>@slide.Title</h3>
+                        <p class="clientSayings">
+                            @slide.Subtitle
+                        </p>
+                        <p class="cinematoP">Cinemato</p>
+                    </div>
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                <i class="fas fa-chevron-left SliderControl leftSliderControl"></i>
+            </a>
+            <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                <i class="fas fa-chevron-right SliderControl rightSliderControl"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="showlayout">
+    <div class="show">
+        <div id="carousel-2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery1.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery3.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery5.jpg">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery7.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery9.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery11.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery13.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item itemDiv">
+                    <img class="d-block w-100 popup" src="~/Public/images/gallery15.jpg" alt="Second slide">
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carousel-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <i class="far fa-times-circle close"></i>
+    </div>
+</div>
+
+
+
+@{ int count = 0;}
+<section id="gallery">
+    <h2>GALLERY</h2>
+    <p><span>Photo</span> Gallery</p>
+
+    <div class="container-fluid galleryCont">
+        <div class="row myGallery">
+
+            @foreach (var img in Model.Galleries)
+            {
+                <div data-index="@count" class="col-md-3 galleryImage imgItem">
+                    <img src="~/Public/images/@img.Image" alt="">
+                    <div class="imageLayout">
+                        <div class="borderImage">
+                            <i class="fas fa-search-plus imageZoom"></i>
+                        </div>
+                    </div>
+                </div>
+                count++;
+            }
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="facts">
+    <h2>FACTS</h2>
+    <p class="facts"><span>Our</span> Facts</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-12 factDivs">
+                    <p class="factCount experCount">@Model.Fact.ExperienceCount</p>
+                    <h3 class="factHeader">@Model.Fact.ExperienceTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ExperienceSubtitle
+                    </p>
+                </div>
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.ClientsCount</p>
+                    <h3 class="factHeader">@Model.Fact.ClientsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ClientsSubtitle
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 logoFact">
+                <div class="factLogoDiv">
+                    <img src="~/Public/images/@Model.Fact.Image" alt="">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.ProjectsCount</p>
+                    <h3 class="factHeader">@Model.Fact.ProjectsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.ProjectsSubtitle
+                    </p>
+                </div>
+                <div class="col-12 factDivs">
+                    <p class="factCount">@Model.Fact.AwardsCount</p>
+                    <h3 class="factHeader">@Model.Fact.AwardsTitle</h3>
+                    <p class="factText">
+                        @Model.Fact.AwardsSubtitle
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="team">
+    <h2>TEAM</h2>
+    <p class="teamSubtitle"><span>Our</span> Team</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var team in Model.Teams)
+            {
+                <div class="col-md-3">
+                    <div class="teamDiv">
+                        <img src="~/Public/images/@team.Image" alt="">
+                        <h3>@team.FullName</h3>
+                        <p>@team.Job</p>
+                        <hr>
+                        <span><i class="fab fa-twitter"></i></span>
+                        <span><i class="fab fa-facebook-f"></i></span>
+                        <span><i class="fab fa-google-plus-g"></i></span>
+                        <span><i class="fab fa-linkedin-in"></i></span>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+
+<section id="partnerSection">
+    <h2>Partner</h2>
+    <p class="partnerSubtitle"><span>Our</span> Partner</p>
+    <div class="container">
+        <div class="row">
+            @foreach (var partner in Model.Partners)
+            {
+                <div class="col-md-3">
+                    <a href="">
+                        <img src="~/Public/images/@partner.Image" alt="">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+
+<section id="map">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="100%" height="440" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=BAKU&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                    scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/webdesign-muenchen/"></a>
+        </div>
+        <style>
+            .mapouter {
+                text-align: right;
+                height: 440px;
+                width: 100%;
+            }
+
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 440px;
+                width: 100%;
+            }
+        </style>
+    </div>
+</section>

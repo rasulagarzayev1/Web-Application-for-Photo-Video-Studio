@@ -1,0 +1,1649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PhotoStudioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="FirstTextPart" Type="nvarchar(max)" />
+          <Property Name="SecondTextPart" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AboutHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="BlogComments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="BlogID" Type="int" />
+          <Property Name="CommentDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BlogHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="700" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="BlogTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="BlogToTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagID" Type="int" />
+          <Property Name="BlogID" Type="int" />
+        </EntityType>
+        <EntityType Name="ClientSlider">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Subtitle" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+          <Property Name="Skype" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ErrorHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Facts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExperienceCount" Type="int" />
+          <Property Name="ProjectsCount" Type="int" />
+          <Property Name="ClientsCount" Type="int" />
+          <Property Name="AwardsCount" Type="int" />
+          <Property Name="ExperienceTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProjectsTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="ClientsTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="AwardsTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="ExperienceSubtitle" Type="nvarchar(max)" />
+          <Property Name="ProjectsSubtitle" Type="nvarchar(max)" />
+          <Property Name="ClientsSubtitle" Type="nvarchar(max)" />
+          <Property Name="AwardsSubtitle" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Likes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="LoginHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MainSlider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RotateHeader" Type="nvarchar" MaxLength="150" />
+          <Property Name="MainTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="Subtitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Mesagges">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="250" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Content" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="date" />
+          <Property Name="UpdatedAt" Type="date" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NewsComments">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="NewsID" Type="int" />
+          <Property Name="Commentdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NewsHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NewsSingleHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NewsTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="NewsToTags">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagID" Type="int" />
+          <Property Name="NewsID" Type="int" />
+        </EntityType>
+        <EntityType Name="OrderTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderType" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="RegisterHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ServiceHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="250" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="250" />
+          <Property Name="AsPhotograph" Type="bit" />
+          <Property Name="AsVideograph" Type="bit" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="StaffOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="StaffID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="OrderTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudioOrders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="OrderTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Job" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Vacations">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StaffID" Type="int" />
+          <Property Name="VacationDateStart" Type="date" />
+          <Property Name="VacationDateEnd" Type="date" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="VideoLink" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__BlogComme__BlogI__73BA3083">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="0..1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogComme__UserI__72C60C4A">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blogs__UserID__6A30C649">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogToTag__BlogI__6FE99F9F">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="0..1" />
+          <End Role="BlogToTags" Type="Self.BlogToTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogToTags">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogToTag__TagID__6EF57B66">
+          <End Role="BlogTags" Type="Self.BlogTags" Multiplicity="0..1" />
+          <End Role="BlogToTags" Type="Self.BlogToTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogTags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogToTags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Likes__BlogID__2180FB33">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="0..1" />
+          <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Likes__UserID__22751F6C">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsComme__NewsI__778AC167">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsComments" Type="Self.NewsComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsComments">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsComme__UserI__76969D2E">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="NewsComments" Type="Self.NewsComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsComments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsToTag__NewsI__6383C8BA">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsToTags" Type="Self.NewsToTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsToTags">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsToTag__TagID__628FA481">
+          <End Role="NewsTags" Type="Self.NewsTags" Multiplicity="0..1" />
+          <End Role="NewsToTags" Type="Self.NewsToTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsTags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsToTags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__Order__01142BA1">
+          <End Role="OrderTypes" Type="Self.OrderTypes" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__Staff__7F2BE32F">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__UserI__00200768">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudioOrd__Order__09A971A2">
+          <End Role="OrderTypes" Type="Self.OrderTypes" Multiplicity="0..1" />
+          <End Role="StudioOrders" Type="Self.StudioOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudioOrders">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudioOrd__UserI__08B54D69">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="StudioOrders" Type="Self.StudioOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudioOrders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vacations__Staff__1AD3FDA4">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="Vacations" Type="Self.Vacations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vacations">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PhotoStudioModelStoreContainer">
+          <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AboutHeader" EntityType="Self.AboutHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogHeader" EntityType="Self.BlogHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogTags" EntityType="Self.BlogTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogToTags" EntityType="Self.BlogToTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientSlider" EntityType="Self.ClientSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactHeader" EntityType="Self.ContactHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorHeader" EntityType="Self.ErrorHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Facts" EntityType="Self.Facts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginHeader" EntityType="Self.LoginHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainSlider" EntityType="Self.MainSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesagges" EntityType="Self.Mesagges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsComments" EntityType="Self.NewsComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsHeader" EntityType="Self.NewsHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsSingleHeader" EntityType="Self.NewsSingleHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsTags" EntityType="Self.NewsTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsToTags" EntityType="Self.NewsToTags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderTypes" EntityType="Self.OrderTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegisterHeader" EntityType="Self.RegisterHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceHeader" EntityType="Self.ServiceHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffOrders" EntityType="Self.StaffOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudioOrders" EntityType="Self.StudioOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vacations" EntityType="Self.Vacations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__BlogComme__BlogI__73BA3083" Association="Self.FK__BlogComme__BlogI__73BA3083">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogComme__UserI__72C60C4A" Association="Self.FK__BlogComme__UserI__72C60C4A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blogs__UserID__6A30C649" Association="Self.FK__Blogs__UserID__6A30C649">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogToTag__BlogI__6FE99F9F" Association="Self.FK__BlogToTag__BlogI__6FE99F9F">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogToTags" EntitySet="BlogToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogToTag__TagID__6EF57B66" Association="Self.FK__BlogToTag__TagID__6EF57B66">
+            <End Role="BlogTags" EntitySet="BlogTags" />
+            <End Role="BlogToTags" EntitySet="BlogToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Likes__BlogID__2180FB33" Association="Self.FK__Likes__BlogID__2180FB33">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Likes__UserID__22751F6C" Association="Self.FK__Likes__UserID__22751F6C">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsComme__NewsI__778AC167" Association="Self.FK__NewsComme__NewsI__778AC167">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsComments" EntitySet="NewsComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsComme__UserI__76969D2E" Association="Self.FK__NewsComme__UserI__76969D2E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="NewsComments" EntitySet="NewsComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsToTag__NewsI__6383C8BA" Association="Self.FK__NewsToTag__NewsI__6383C8BA">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsToTags" EntitySet="NewsToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsToTag__TagID__628FA481" Association="Self.FK__NewsToTag__TagID__628FA481">
+            <End Role="NewsTags" EntitySet="NewsTags" />
+            <End Role="NewsToTags" EntitySet="NewsToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__Order__01142BA1" Association="Self.FK__PhotoOrde__Order__01142BA1">
+            <End Role="OrderTypes" EntitySet="OrderTypes" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__Staff__7F2BE32F" Association="Self.FK__PhotoOrde__Staff__7F2BE32F">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__UserI__00200768" Association="Self.FK__PhotoOrde__UserI__00200768">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudioOrd__Order__09A971A2" Association="Self.FK__StudioOrd__Order__09A971A2">
+            <End Role="OrderTypes" EntitySet="OrderTypes" />
+            <End Role="StudioOrders" EntitySet="StudioOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudioOrd__UserI__08B54D69" Association="Self.FK__StudioOrd__UserI__08B54D69">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudioOrders" EntitySet="StudioOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vacations__Staff__1AD3FDA4" Association="Self.FK__Vacations__Staff__1AD3FDA4">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Vacations" EntitySet="Vacations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PhotoStudioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="About">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FirstTextPart" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecondTextPart" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AboutHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BlogComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="BlogID" Type="Int32" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK__BlogComme__BlogI__73BA3083" FromRole="BlogComments" ToRole="Blogs" />
+          <NavigationProperty Name="User" Relationship="Self.FK__BlogComme__UserI__72C60C4A" FromRole="BlogComments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="BlogHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="700" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.FK__BlogComme__BlogI__73BA3083" FromRole="Blogs" ToRole="BlogComments" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Blogs__UserID__6A30C649" FromRole="Blogs" ToRole="Users" />
+          <NavigationProperty Name="BlogToTags" Relationship="Self.FK__BlogToTag__BlogI__6FE99F9F" FromRole="Blogs" ToRole="BlogToTags" />
+          <NavigationProperty Name="Likes" Relationship="PhotoStudioModel.FK__Likes__BlogID__2180FB33" FromRole="Blog" ToRole="Like" />
+        </EntityType>
+        <EntityType Name="BlogTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogToTags" Relationship="Self.FK__BlogToTag__TagID__6EF57B66" FromRole="BlogTags" ToRole="BlogToTags" />
+        </EntityType>
+        <EntityType Name="BlogToTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagID" Type="Int32" />
+          <Property Name="BlogID" Type="Int32" />
+          <NavigationProperty Name="Blog" Relationship="Self.FK__BlogToTag__BlogI__6FE99F9F" FromRole="BlogToTags" ToRole="Blogs" />
+          <NavigationProperty Name="BlogTag" Relationship="Self.FK__BlogToTag__TagID__6EF57B66" FromRole="BlogToTags" ToRole="BlogTags" />
+        </EntityType>
+        <EntityType Name="ClientSlider">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Subtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Skype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContactHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ErrorHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Fact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExperienceCount" Type="Int32" />
+          <Property Name="ProjectsCount" Type="Int32" />
+          <Property Name="ClientsCount" Type="Int32" />
+          <Property Name="AwardsCount" Type="Int32" />
+          <Property Name="ExperienceTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectsTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ClientsTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AwardsTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ExperienceSubtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectsSubtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClientsSubtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AwardsSubtitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MainSlider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RotateHeader" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MainTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Subtitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NewsComments" Relationship="Self.FK__NewsComme__NewsI__778AC167" FromRole="News" ToRole="NewsComments" />
+          <NavigationProperty Name="NewsToTags" Relationship="Self.FK__NewsToTag__NewsI__6383C8BA" FromRole="News" ToRole="NewsToTags" />
+        </EntityType>
+        <EntityType Name="NewsComment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="NewsID" Type="Int32" />
+          <Property Name="Commentdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="News" Relationship="Self.FK__NewsComme__NewsI__778AC167" FromRole="NewsComments" ToRole="News" />
+          <NavigationProperty Name="User" Relationship="Self.FK__NewsComme__UserI__76969D2E" FromRole="NewsComments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="NewsHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsSingleHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NewsToTags" Relationship="Self.FK__NewsToTag__TagID__628FA481" FromRole="NewsTags" ToRole="NewsToTags" />
+        </EntityType>
+        <EntityType Name="NewsToTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagID" Type="Int32" />
+          <Property Name="NewsID" Type="Int32" />
+          <NavigationProperty Name="News" Relationship="Self.FK__NewsToTag__NewsI__6383C8BA" FromRole="NewsToTags" ToRole="News" />
+          <NavigationProperty Name="NewsTag" Relationship="Self.FK__NewsToTag__TagID__628FA481" FromRole="NewsToTags" ToRole="NewsTags" />
+        </EntityType>
+        <EntityType Name="OrderType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderType1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="StaffOrders" Relationship="Self.FK__PhotoOrde__Order__01142BA1" FromRole="OrderTypes" ToRole="StaffOrders" />
+          <NavigationProperty Name="StudioOrders" Relationship="Self.FK__StudioOrd__Order__09A971A2" FromRole="OrderTypes" ToRole="StudioOrders" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RegisterHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ServiceHeader">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AsPhotograph" Type="Boolean" />
+          <Property Name="AsVideograph" Type="Boolean" />
+          <NavigationProperty Name="StaffOrders" Relationship="Self.FK__PhotoOrde__Staff__7F2BE32F" FromRole="Staff" ToRole="StaffOrders" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vacations" Relationship="PhotoStudioModel.FK__Vacations__Staff__1AD3FDA4" FromRole="Staff" ToRole="Vacation" />
+        </EntityType>
+        <EntityType Name="StaffOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="StaffID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="OrderTypeID" Type="Int32" />
+          <NavigationProperty Name="OrderType" Relationship="Self.FK__PhotoOrde__Order__01142BA1" FromRole="StaffOrders" ToRole="OrderTypes" />
+          <NavigationProperty Name="Staff" Relationship="Self.FK__PhotoOrde__Staff__7F2BE32F" FromRole="StaffOrders" ToRole="Staff" />
+          <NavigationProperty Name="User" Relationship="Self.FK__PhotoOrde__UserI__00200768" FromRole="StaffOrders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="StudioOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="OrderTypeID" Type="Int32" />
+          <NavigationProperty Name="OrderType" Relationship="Self.FK__StudioOrd__Order__09A971A2" FromRole="StudioOrders" ToRole="OrderTypes" />
+          <NavigationProperty Name="User" Relationship="Self.FK__StudioOrd__UserI__08B54D69" FromRole="StudioOrders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Job" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Firstname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogComments" Relationship="Self.FK__BlogComme__UserI__72C60C4A" FromRole="Users" ToRole="BlogComments" />
+          <NavigationProperty Name="Blogs" Relationship="Self.FK__Blogs__UserID__6A30C649" FromRole="Users" ToRole="Blogs" />
+          <NavigationProperty Name="NewsComments" Relationship="Self.FK__NewsComme__UserI__76969D2E" FromRole="Users" ToRole="NewsComments" />
+          <NavigationProperty Name="StaffOrders" Relationship="Self.FK__PhotoOrde__UserI__00200768" FromRole="Users" ToRole="StaffOrders" />
+          <NavigationProperty Name="StudioOrders" Relationship="Self.FK__StudioOrd__UserI__08B54D69" FromRole="Users" ToRole="StudioOrders" />
+          <NavigationProperty Name="Likes" Relationship="PhotoStudioModel.FK__Likes__UserID__22751F6C" FromRole="User" ToRole="Like" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__BlogComme__BlogI__73BA3083">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="0..1" />
+          <End Role="BlogComments" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogComme__UserI__72C60C4A">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BlogComments" Type="Self.BlogComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Blogs__UserID__6A30C649">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogToTag__BlogI__6FE99F9F">
+          <End Role="Blogs" Type="Self.Blog" Multiplicity="0..1" />
+          <End Role="BlogToTags" Type="Self.BlogToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogToTags">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BlogToTag__TagID__6EF57B66">
+          <End Role="BlogTags" Type="Self.BlogTag" Multiplicity="0..1" />
+          <End Role="BlogToTags" Type="Self.BlogToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogTags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BlogToTags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsComme__NewsI__778AC167">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsComments" Type="Self.NewsComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsComments">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsToTag__NewsI__6383C8BA">
+          <End Role="News" Type="Self.News" Multiplicity="0..1" />
+          <End Role="NewsToTags" Type="Self.NewsToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsToTags">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsComme__UserI__76969D2E">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="NewsComments" Type="Self.NewsComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsComments">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NewsToTag__TagID__628FA481">
+          <End Role="NewsTags" Type="Self.NewsTag" Multiplicity="0..1" />
+          <End Role="NewsToTags" Type="Self.NewsToTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewsTags">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsToTags">
+              <PropertyRef Name="TagID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__Order__01142BA1">
+          <End Role="OrderTypes" Type="Self.OrderType" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudioOrd__Order__09A971A2">
+          <End Role="OrderTypes" Type="Self.OrderType" Multiplicity="0..1" />
+          <End Role="StudioOrders" Type="Self.StudioOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudioOrders">
+              <PropertyRef Name="OrderTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__Staff__7F2BE32F">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhotoOrde__UserI__00200768">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StaffOrders" Type="Self.StaffOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StaffOrders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StudioOrd__UserI__08B54D69">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="StudioOrders" Type="Self.StudioOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudioOrders">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PhotoStudioEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeader" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComment" />
+          <EntitySet Name="BlogHeaders" EntityType="Self.BlogHeader" />
+          <EntitySet Name="Blogs" EntityType="Self.Blog" />
+          <EntitySet Name="BlogTags" EntityType="Self.BlogTag" />
+          <EntitySet Name="BlogToTags" EntityType="Self.BlogToTag" />
+          <EntitySet Name="ClientSliders" EntityType="Self.ClientSlider" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="ContactHeaders" EntityType="Self.ContactHeader" />
+          <EntitySet Name="ErrorHeaders" EntityType="Self.ErrorHeader" />
+          <EntitySet Name="Facts" EntityType="Self.Fact" />
+          <EntitySet Name="Galleries" EntityType="Self.Gallery" />
+          <EntitySet Name="LoginHeaders" EntityType="Self.LoginHeader" />
+          <EntitySet Name="MainSliders" EntityType="Self.MainSlider" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="NewsComments" EntityType="Self.NewsComment" />
+          <EntitySet Name="NewsHeaders" EntityType="Self.NewsHeader" />
+          <EntitySet Name="NewsSingleHeaders" EntityType="Self.NewsSingleHeader" />
+          <EntitySet Name="NewsTags" EntityType="Self.NewsTag" />
+          <EntitySet Name="NewsToTags" EntityType="Self.NewsToTag" />
+          <EntitySet Name="OrderTypes" EntityType="Self.OrderType" />
+          <EntitySet Name="Partners" EntityType="Self.Partner" />
+          <EntitySet Name="RegisterHeaders" EntityType="Self.RegisterHeader" />
+          <EntitySet Name="ServiceHeaders" EntityType="Self.ServiceHeader" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="StaffOrders" EntityType="Self.StaffOrder" />
+          <EntitySet Name="StudioOrders" EntityType="Self.StudioOrder" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Videos" EntityType="Self.Video" />
+          <AssociationSet Name="FK__BlogComme__BlogI__73BA3083" Association="Self.FK__BlogComme__BlogI__73BA3083">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogComme__UserI__72C60C4A" Association="Self.FK__BlogComme__UserI__72C60C4A">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Blogs__UserID__6A30C649" Association="Self.FK__Blogs__UserID__6A30C649">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogToTag__BlogI__6FE99F9F" Association="Self.FK__BlogToTag__BlogI__6FE99F9F">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogToTags" EntitySet="BlogToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BlogToTag__TagID__6EF57B66" Association="Self.FK__BlogToTag__TagID__6EF57B66">
+            <End Role="BlogTags" EntitySet="BlogTags" />
+            <End Role="BlogToTags" EntitySet="BlogToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsComme__NewsI__778AC167" Association="Self.FK__NewsComme__NewsI__778AC167">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsComments" EntitySet="NewsComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsToTag__NewsI__6383C8BA" Association="Self.FK__NewsToTag__NewsI__6383C8BA">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsToTags" EntitySet="NewsToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsComme__UserI__76969D2E" Association="Self.FK__NewsComme__UserI__76969D2E">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="NewsComments" EntitySet="NewsComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NewsToTag__TagID__628FA481" Association="Self.FK__NewsToTag__TagID__628FA481">
+            <End Role="NewsTags" EntitySet="NewsTags" />
+            <End Role="NewsToTags" EntitySet="NewsToTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__Order__01142BA1" Association="Self.FK__PhotoOrde__Order__01142BA1">
+            <End Role="OrderTypes" EntitySet="OrderTypes" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudioOrd__Order__09A971A2" Association="Self.FK__StudioOrd__Order__09A971A2">
+            <End Role="OrderTypes" EntitySet="OrderTypes" />
+            <End Role="StudioOrders" EntitySet="StudioOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__Staff__7F2BE32F" Association="Self.FK__PhotoOrde__Staff__7F2BE32F">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhotoOrde__UserI__00200768" Association="Self.FK__PhotoOrde__UserI__00200768">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StaffOrders" EntitySet="StaffOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StudioOrd__UserI__08B54D69" Association="Self.FK__StudioOrd__UserI__08B54D69">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="StudioOrders" EntitySet="StudioOrders" />
+          </AssociationSet>
+          <EntitySet Name="Vacations" EntityType="PhotoStudioModel.Vacation" />
+          <AssociationSet Name="FK__Vacations__Staff__1AD3FDA4" Association="PhotoStudioModel.FK__Vacations__Staff__1AD3FDA4">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Vacation" EntitySet="Vacations" />
+          </AssociationSet>
+          <EntitySet Name="Likes" EntityType="PhotoStudioModel.Like" />
+          <AssociationSet Name="FK__Likes__BlogID__2180FB33" Association="PhotoStudioModel.FK__Likes__BlogID__2180FB33">
+            <End Role="Blog" EntitySet="Blogs" />
+            <End Role="Like" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Likes__UserID__22751F6C" Association="PhotoStudioModel.FK__Likes__UserID__22751F6C">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Like" EntitySet="Likes" />
+          </AssociationSet>
+          <EntitySet Name="Admins" EntityType="PhotoStudioModel.Admin" />
+          <EntitySet Name="Mesagges" EntityType="PhotoStudioModel.Mesagge" />
+        </EntityContainer>
+        <EntityType Name="Vacation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StaffID" Type="Int32" />
+          <NavigationProperty Name="Staff" Relationship="PhotoStudioModel.FK__Vacations__Staff__1AD3FDA4" FromRole="Vacation" ToRole="Staff" />
+          <Property Name="VacationDateStart" Type="DateTime" Precision="0" />
+          <Property Name="VacationDateEnd" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK__Vacations__Staff__1AD3FDA4">
+          <End Type="PhotoStudioModel.Staff" Role="Staff" Multiplicity="0..1" />
+          <End Type="PhotoStudioModel.Vacation" Role="Vacation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vacation">
+              <PropertyRef Name="StaffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Like">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Blog" Relationship="PhotoStudioModel.FK__Likes__BlogID__2180FB33" FromRole="Like" ToRole="Blog" />
+          <NavigationProperty Name="User" Relationship="PhotoStudioModel.FK__Likes__UserID__22751F6C" FromRole="Like" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Likes__BlogID__2180FB33">
+          <End Type="PhotoStudioModel.Blog" Role="Blog" Multiplicity="0..1" />
+          <End Type="PhotoStudioModel.Like" Role="Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blog">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Likes__UserID__22751F6C">
+          <End Type="PhotoStudioModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="PhotoStudioModel.Like" Role="Like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Like">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mesagge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PhotoStudioModelStoreContainer" CdmEntityContainer="PhotoStudioEntities4">
+          <EntitySetMapping Name="Abouts">
+            <EntityTypeMapping TypeName="PhotoStudioModel.About">
+              <MappingFragment StoreEntitySet="About">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="FirstTextPart" ColumnName="FirstTextPart" />
+                <ScalarProperty Name="SecondTextPart" ColumnName="SecondTextPart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.AboutHeader">
+              <MappingFragment StoreEntitySet="AboutHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="PhotoStudioModel.BlogComment">
+              <MappingFragment StoreEntitySet="BlogComments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.BlogHeader">
+              <MappingFragment StoreEntitySet="BlogHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Blog">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogTags">
+            <EntityTypeMapping TypeName="PhotoStudioModel.BlogTag">
+              <MappingFragment StoreEntitySet="BlogTags">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogToTags">
+            <EntityTypeMapping TypeName="PhotoStudioModel.BlogToTag">
+              <MappingFragment StoreEntitySet="BlogToTags">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientSliders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.ClientSlider">
+              <MappingFragment StoreEntitySet="ClientSlider">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.ContactHeader">
+              <MappingFragment StoreEntitySet="ContactHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.ErrorHeader">
+              <MappingFragment StoreEntitySet="ErrorHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facts">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Fact">
+              <MappingFragment StoreEntitySet="Facts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ExperienceCount" ColumnName="ExperienceCount" />
+                <ScalarProperty Name="ProjectsCount" ColumnName="ProjectsCount" />
+                <ScalarProperty Name="ClientsCount" ColumnName="ClientsCount" />
+                <ScalarProperty Name="AwardsCount" ColumnName="AwardsCount" />
+                <ScalarProperty Name="ExperienceTitle" ColumnName="ExperienceTitle" />
+                <ScalarProperty Name="ProjectsTitle" ColumnName="ProjectsTitle" />
+                <ScalarProperty Name="ClientsTitle" ColumnName="ClientsTitle" />
+                <ScalarProperty Name="AwardsTitle" ColumnName="AwardsTitle" />
+                <ScalarProperty Name="ExperienceSubtitle" ColumnName="ExperienceSubtitle" />
+                <ScalarProperty Name="ProjectsSubtitle" ColumnName="ProjectsSubtitle" />
+                <ScalarProperty Name="ClientsSubtitle" ColumnName="ClientsSubtitle" />
+                <ScalarProperty Name="AwardsSubtitle" ColumnName="AwardsSubtitle" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galleries">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.LoginHeader">
+              <MappingFragment StoreEntitySet="LoginHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainSliders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.MainSlider">
+              <MappingFragment StoreEntitySet="MainSlider">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RotateHeader" ColumnName="RotateHeader" />
+                <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="PhotoStudioModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsComments">
+            <EntityTypeMapping TypeName="PhotoStudioModel.NewsComment">
+              <MappingFragment StoreEntitySet="NewsComments">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="Commentdate" ColumnName="Commentdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.NewsHeader">
+              <MappingFragment StoreEntitySet="NewsHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsSingleHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.NewsSingleHeader">
+              <MappingFragment StoreEntitySet="NewsSingleHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsTags">
+            <EntityTypeMapping TypeName="PhotoStudioModel.NewsTag">
+              <MappingFragment StoreEntitySet="NewsTags">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsToTags">
+            <EntityTypeMapping TypeName="PhotoStudioModel.NewsToTag">
+              <MappingFragment StoreEntitySet="NewsToTags">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderTypes">
+            <EntityTypeMapping TypeName="PhotoStudioModel.OrderType">
+              <MappingFragment StoreEntitySet="OrderTypes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrderType1" ColumnName="OrderType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partners">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Partner">
+              <MappingFragment StoreEntitySet="Partners">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegisterHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.RegisterHeader">
+              <MappingFragment StoreEntitySet="RegisterHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceHeaders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.ServiceHeader">
+              <MappingFragment StoreEntitySet="ServiceHeader">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="AsPhotograph" ColumnName="AsPhotograph" />
+                <ScalarProperty Name="AsVideograph" ColumnName="AsVideograph" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffOrders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.StaffOrder">
+              <MappingFragment StoreEntitySet="StaffOrders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrderTypeID" ColumnName="OrderTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudioOrders">
+            <EntityTypeMapping TypeName="PhotoStudioModel.StudioOrder">
+              <MappingFragment StoreEntitySet="StudioOrders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="OrderTypeID" ColumnName="OrderTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PhotoStudioModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacations">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Vacation">
+              <MappingFragment StoreEntitySet="Vacations">
+                <ScalarProperty Name="VacationDateEnd" ColumnName="VacationDateEnd" />
+                <ScalarProperty Name="VacationDateStart" ColumnName="VacationDateStart" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Likes">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Like">
+              <MappingFragment StoreEntitySet="Likes">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesagges">
+            <EntityTypeMapping TypeName="PhotoStudioModel.Mesagge">
+              <MappingFragment StoreEntitySet="Mesagges">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

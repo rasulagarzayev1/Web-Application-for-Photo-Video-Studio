@@ -1,0 +1,56 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model NewsViewModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<section id="newsHead">
+    <img src="~/Public/images/@Model.NewsHeader.Image" alt="">
+    <div class="contactLayout"></div>
+    <h1>NEWS</h1>
+    <p class="contactSubtitle"><span>Our</span> News</p>
+</section>
+
+<section id="mainNews">
+    <div class="container">
+        <div class="row newsparts">
+            @foreach (var item in Model.News)
+            {
+                <div class="col-md-5 offset-md-1  imgDiv">
+                    <div class="col-12 imgDivInner">
+                        <img src="~/Public/images/@item.Image" alt="">
+                        <div class="layout"></div>
+                    </div>
+                    <p>
+                        @item.UpdatedAt.Value.ToString("MMMM dd, yyyy")
+                    </p>
+                    <ul>
+                        @foreach (var tag in Model.NewsToTags)
+                        {
+                            if (tag.NewsID == item.ID)
+                            {
+                                <li><a href="#">#@tag.NewsTag.Tag</a></li>
+                            }
+                        }
+                        <li>/</li>
+                        <li>Comments:8</li>
+                    </ul>
+                    <hr>
+                    <h4>@item.Title</h4>
+                    <p>
+                        @item.Description.Substring(0, 280)
+                    </p>
+                    <a class="readMore" href=" @Url.Action("Single", "News", new { id = item.ID })"> Read More</a>
+                </div>
+            }
+            @if (Model.News.Count() == 0)
+            {
+                <h2 style="text-align:center;color:red;font-size:2em;">There is no news with that property.</h2>
+            }
+        </div>
+    </div>
+
+</section>
+
+
+

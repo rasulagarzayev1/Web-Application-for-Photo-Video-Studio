@@ -1,0 +1,10 @@
+﻿@using Photo_Video_Studio.Models
+@model List<OrderType>
+
+<select class="form-control HireformItems" id="StudioTypeDrop">
+    @foreach (var item in Model)
+    {
+        <option value="@item.ID">@item.OrderType1</option>
+    }
+
+</select>

@@ -1,0 +1,71 @@
+﻿@model Photo_Video_Studio.Models.Staff
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Staff</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Firstname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Lastname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AsPhotograph)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AsPhotograph)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AsVideograph)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AsVideograph)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        <a href="@Url.Action("Index","Staff")" class="btn btn-primary">Back to List</a>
+    </p>
+</body>
+</html>

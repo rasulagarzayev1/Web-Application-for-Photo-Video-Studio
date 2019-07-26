@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Photo_Video_Studio.Models.StudioOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            Order Type
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderType.OrderType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            <a href="@Url.Action("Details", "StudioOrders", new { id =item.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>|
+            <a href="@Url.Action("Delete", "StudioOrders", new { id =item.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

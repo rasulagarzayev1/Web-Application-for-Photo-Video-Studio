@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Photo_Video_Studio.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="Gallery/Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:30%;height:30%;">
+            <img src="~/Public/images/@item.Image" alt="Alternate Text" />
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Gallery", new { id =item.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+            <a href="@Url.Action("Details", "Gallery", new { id =item.ID })" class="btn btn-primary"><i class="fas fa-info-circle"></i></a>|
+            @if (Model.ToArray().Length > 4)
+            {
+                <a href="@Url.Action("Delete", "Gallery", new { id =item.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            }
+        </td>
+    </tr>
+}
+
+</table>

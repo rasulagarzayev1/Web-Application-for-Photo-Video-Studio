@@ -1,0 +1,521 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#about{
+    position: relative;
+    img{
+        width: 100%;
+    }
+    .aboutLayout{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.445);
+        height: 466px;
+    }
+    h1{
+        color: #e5e5e54d;
+        font-size: 5em;
+        font-family: 'Archivo Black', sans-serif;  
+        position: absolute;
+        top: 50%;
+        left: 40%; 
+    }
+    .aboutSubtitle{
+        position: absolute;
+        top: 56%;
+        left: 46%;
+        font-size: 1.3em;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+        span{
+            font-weight: 1000;
+            color: #d50000;
+            font-family: 'Archivo Black', sans-serif;   
+        }
+    }
+}
+@media screen and (min-width:320px) and (max-width:767px){
+    #about{
+        img{
+            height: 170px;
+        }
+        .aboutLayout{
+            height: 170px;
+        }
+        h1{
+            font-size: 3em;
+            top: 50%;
+            left: 25%; 
+        }
+        .aboutSubtitle{
+            position: absolute;
+            top: 56%;
+            left: 37%;
+            font-size: 1.3em;
+        }
+    } 
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+    #about{
+        img{
+            height: 270px;
+        }
+        .aboutLayout{
+            height: 270px;
+        }
+        h1{
+            font-size: 3em;
+            top: 50%;
+            left: 37%; 
+        }
+        .aboutSubtitle{
+            position: absolute;
+            top: 56%;
+            left: 43%;
+            font-size: 1.3em;
+        }
+    } 
+}
+@media screen and (min-width:1024px) and (max-width:1365px){
+    #about{
+        img{
+            height: 270px;
+        }
+        .aboutLayout{
+            height: 270px;
+        }
+        h1{
+            font-size: 5em;
+            top: 40%;
+            left: 34%; 
+        }
+        .aboutSubtitle{
+            position: absolute;
+            top: 50%;
+            left: 42%;
+            font-size: 2em;
+        }
+    } 
+}
+
+
+
+#aboutUs{
+    padding-top: 7%;
+    padding-bottom: 7%;
+    .aboutTextPart{
+        h1{
+            color: #e5e5e5;
+            font-size: 5em;
+            font-family: 'Archivo Black', sans-serif;   
+        }
+        .creativeP{
+            position: relative;
+            top: -50px;
+            left: 180px;
+            font-size: 1.3em;
+            span{
+                font-weight: 1000;
+                color: #d50000;
+                font-family: 'Archivo Black', sans-serif;   
+            }
+        }
+        .aboutSubtitles{
+            padding-top: 5%;
+            color: #777777;
+            line-height: 1.8em;
+            font-size: 0.9em;
+        }
+        a{
+            padding: 2.5%;
+            color: white;
+            background-color: #777;
+            margin-top: 4%;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 1s ease-in-out;
+            &:hover{
+                background-color: #d50000;
+            }
+        }
+    }
+    .aboutImg{
+        img{
+            width: 100%;
+        }
+    }
+}
+@media screen and (min-width:320px) and (max-width:767px){
+    #aboutUs{
+        padding-top: 7%;
+        padding-bottom: 7%;
+        .aboutTextPart{
+            h1{
+                font-size: 3em;
+                text-align: center;   
+            }
+            .creativeP{
+                position: absolute;
+                top: 13px;
+                left: 100px;
+                font-size: 1.3em;
+            }
+            .aboutSubtitles{
+                padding-top: 5%;
+                line-height: 1.8em;
+                font-size: 0.9em;
+            }
+            a{
+                padding: 2.5%;
+                margin-top: 4%;
+            }
+        }
+        .aboutImg{
+            img{
+                width: 100%;
+            }
+        }
+    } 
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+    #aboutUs{
+        .aboutTextPart{
+            margin-top: 4%;
+            h1{
+                font-size: 2em;
+                text-align: center;
+
+            }
+            .creativeP{
+                position: absolute;
+                top: 3%;
+                left: 40%;
+                font-size: 0.7em;
+            }
+            .aboutSubtitles{
+                font-size: 0.7em;
+                line-height: 1.5em;
+            }
+            
+        }
+        img{
+            padding-top: 15%;
+        }
+        
+    }    
+}
+@media screen and (min-width:1024px) and (max-width:1365px){
+    #aboutUs{
+        .aboutTextPart{
+            margin-top: 4%;
+            h1{
+                font-size: 2em;
+                text-align: center;
+
+            }
+            .creativeP{
+                position: absolute;
+                top: 3%;
+                left: 40%;
+                font-size: 0.7em;
+            }
+            .aboutSubtitles{
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+            
+        }
+        img{
+            padding-top: 15%;
+        }
+        
+    }    
+}
+
+
+
+#team{
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    background-color: #eeee;
+    h2{
+        text-align: center;
+        color: #e5e5e5;
+        font-size: 5.5em;
+        font-family: 'Archivo Black', sans-serif;  
+        padding-bottom: 4%; 
+       }
+    .teamSubtitle{
+            position: absolute;
+            top: 15%;
+            left: 45%;
+            font-size: 1.7em;
+            font-family: 'Montserrat', sans-serif;
+            span{
+                color: #d50000;
+                font-weight: 900;
+                font-family: 'Archivo Black', sans-serif;   
+            }
+    }
+    .teamDiv{
+        background-color: white;
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+        text-align: center;
+        img{
+            width: 100%;
+        }
+        h3{
+            margin: 5% 0;
+        }
+        p{
+            color: #777777;
+        }
+        span{
+            text-align: center;
+            line-height: 30px;
+            display: inline-block;
+            width:30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color:rgba(119, 119, 119, 0.301);
+            font-size: 0.7em;
+            margin-bottom: 1em;
+            transition: all 1s ease-in-out;
+
+            &:hover{
+                cursor:pointer;
+                background-color: #d50000;
+                color: white;
+            }
+        }
+        &:hover{
+            box-shadow: 1px 1px 13px rgba(0, 0, 0, 0.212);
+        }
+    }
+}
+@media screen and (min-width:320px) and (max-width:767px){
+    #team{
+        position: relative;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    
+        h2{
+            text-align: center;
+            font-size: 5.5em;
+            padding-bottom: 4%; 
+           }
+        .teamSubtitle{
+                position: absolute;
+                top: 2%;
+                left: 33%;
+                font-size: 1.7em;
+        }
+        .teamDiv{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5%;
+            img{
+                width: 100%;
+            }
+            h3{
+                margin: 5% 0;
+            }
+            
+            span{
+                text-align: center;
+                line-height: 30px;
+                display: inline-block;
+                width:30px;
+                height: 30px;
+                border-radius: 100%;
+                font-size: 0.7em;
+                margin-bottom: 1em;
+            }
+        }
+    }
+}
+
+
+
+#clients{
+    position: relative;
+   h2{
+    text-align: center;
+    color: #e5e5e5;
+    font-size: 5.5em;
+    font-family: 'Archivo Black', sans-serif;  
+    padding-bottom: 4%; 
+   }
+   .clientSays{
+        position: absolute;
+        top: 7%;
+        left: 46%;
+        font-size: 1.7em;
+        font-family: 'Montserrat', sans-serif;
+        span{
+            color: #d50000;
+            font-weight: 900;
+            font-family: 'Archivo Black', sans-serif;   
+        }
+    }
+    .clientSlide{
+        text-align: center;
+        font-size: 0.9em;
+        font-family: 'Montserrat', sans-serif;
+        h3{
+            font-weight: bolder;
+            font-size: 1.3em;
+            padding-bottom: 2%;
+        }
+        .clientSayings{
+            width: 60%;
+            margin: auto;
+            line-height: 1.7em;
+        }
+        .clientImage{
+            width: 10%;
+            border-radius: 100%;
+            margin-bottom: 5%;
+            border: 3px solid #d50000; 
+        }
+        .cinematoP{
+            color:#d50000;
+            font-weight: bold;
+        }
+        
+        
+    }
+    .SliderControl{
+        font-size: 3em;
+        color: #7777777a;
+        position: absolute;
+        top: 50%;
+        &:hover{
+            color: #d50000;
+        }
+    }
+}
+@media screen and (min-width:320px) and (max-width:767px){
+    #clients{
+        position: relative;
+        margin-top: 5%;
+        margin-bottom: 5%;
+       h2{
+        text-align: center;
+        font-size: 2em;
+        padding-bottom: 4%; 
+       }
+       .clientSays{
+            position: absolute;
+            top: 2%;
+            left: 35%;
+            font-size: 1em;
+           
+        }
+        .clientSlide{
+            text-align: center;
+            font-size: 0.9em;
+            h3{
+                font-size: 1.3em;
+                padding-bottom: 2%;
+            }
+            .clientSayings{
+                width: 60%;
+                margin: auto;
+                line-height: 1.7em;
+                font-size: 0.7em;
+            }
+            .clientImage{
+                width: 17%;
+                border-radius: 100%;
+                margin-bottom: 5%;
+            }
+        }
+        .SliderControl{
+            font-size: 3em;
+            top: 50%;
+            
+        }
+    }  
+}
+
+
+
+#partner{
+    position: relative;
+    margin-top: 5%;
+    padding-bottom: 5%;
+    background-color: #7777771e;
+    h2{
+        text-align: center;
+        color: #a5a0a034;
+        font-size: 5.5em;
+        font-family: 'Archivo Black', sans-serif;  
+        padding-bottom: 4%; 
+       }
+    .partnerSubtitle{
+            position: absolute;
+            top: 6%;
+            left: 45%;
+            font-size: 1.7em;
+            font-family: 'Montserrat', sans-serif;
+            span{
+                color: #d50000;
+                font-weight: 900;
+                font-family: 'Archivo Black', sans-serif;   
+            }
+    }
+
+    
+}
+@media screen and (min-width:320px) and (max-width:767px){
+    #partner{
+        position: relative;
+        margin-top: 5%;
+        padding-bottom: 5%;
+        h2{
+            text-align: center;
+            font-size: 3em;
+            padding-bottom: 4%; 
+           }
+        .partnerSubtitle{
+                position: absolute;
+                top: 1%;
+                left: 36%;
+                font-size: 1.2em;
+        }
+        img{
+            width: 100%;
+        }
+    
+        
+    } 
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+    #partner{
+        h2{
+            font-size: 5em;
+        }
+        .partnerSubtitle{
+            top: 10%;
+            left: 40%;
+            font-size: 1.7em;
+        } 
+    }  
+    img{
+        width: 100%;
+    }
+}
+@media screen and (min-width:1024px) and (max-width:1365px){
+    
+    img{
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,122 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model SingleNewsViewModel
+@{
+    ViewBag.Title = "Single";
+}
+
+<section id="newsHead">
+    <img src="~/Public/images/@Model.NewsSingleHeader.Image" alt="">
+    <div class="newsLayout"></div>
+    <h1>NEWS</h1>
+    <p class="newsSubtitle"><span>Our</span> News</p>
+</section>
+
+
+<section id="singleNews">
+    <h2 class="newsHeader">NEWS</h2>
+    <p class="newsSubtitle"><span>Our</span> News</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-12">
+                    <img src="~/Public/images/@Model.News.Image" alt="">
+                </div>
+                <div class="col-12 singleText">
+                    <h2 class="newsName">@Model.News.Title</h2>
+                    <p class="newsP">
+                        @Model.News.Description
+                    </p>
+
+                    <div class="col-12 commetPart">
+                        <h2 class="commentsHeader">COMMENTS:</h2>
+                        <div class="row commentSection">
+                            @foreach (var item in Model.NewsComments)
+                            {
+                                <div class="col-3">
+                                    <img src="~/Public/images/user.png" alt="">
+                                </div>
+                                <div class="col-9">
+                                    <h2 class="commentUser">@item.User.Firstname @item.User.Lastname <span class="commetDate">@item.Commentdate.Value.ToString("MMMM dd, yyyy")</span></h2>
+                                    <p class="commentText">
+                                        @item.Content
+                                    </p>
+                                </div>
+                            }
+                        </div>
+                        <input type="hidden" value="@Model.News.ID" id="forBlogID" />
+                        <textarea  required class="commentContent" name="comment" id="" cols="100" rows="5" placeholder="Write a comment"></textarea>
+                        <button style="outline:none;border:none;" id="writeComment" class="postComment">Post Comment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 recentPart">
+                <form method="post" action="/News/Search">
+                    <input type="text" placeholder="Search" required name="query">
+                    <button type="submit">
+                        <a style="color:black;" href="@Url.Action("Search","News")"><i class="fas fa-search"></i></a>
+                    </button>
+                </form>
+
+                <h3 class="recentHeader">RECENT NEWS</h3>
+
+                <div class="row">
+                    @foreach (var item in Model.RecentNewsVM.News)
+                    {
+                        <div class="col-4 recentImgDiv">
+                            <img src="~/Public/images/@item.Image" alt="">
+                        </div>
+                        <div class="col-8 recentTextDiv">
+                            <h3>
+                                <a href="@Url.Action("Single", "News", new { id = item.ID })">@item.Title</a>
+                            </h3>
+                            <p>@item.Description.Substring(0, 50)</p>
+                            <a class="recentReadMore" href="@Url.Action("Single", "News", new { id = item.ID })">Read more</a>
+                        </div>
+                    }
+                </div>
+                <h2 class="popularTags">NEWS TAGS</h2>
+                <div class="spanDiv">
+                    @foreach (var item in Model.NewsToTags)
+                    {
+                        if (Model.News.ID == item.NewsID)
+                        {
+                            <span class="tagSpan"><a href="@Url.Action("Tag", "News", new { tag =item.NewsTag.Tag })" rel="tag">#@item.NewsTag.Tag</a></span>
+                        }
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+@section script{
+    <script>
+        $(function () {
+
+            var commentCont = $(".commentContent");
+            var postID = $("#forBlogID");
+            var writeComment = $("#writeComment");
+
+            $(document).on("click", "#writeComment", function () {
+
+                if (commentCont.val() != "") {
+                    $.ajax({
+                        url: "/AJAX/CreateNewsComment",
+                        data: { content: commentCont.val(), newsID: postID.val() },
+                        type: "POST",
+                        datatype: "HTML",
+                        success: function (res) {
+                            console.log(res);
+                            $(".commentSection").prepend(res);
+                        }
+
+                    })
+                }
+
+            })
+
+        })
+    </script>
+}

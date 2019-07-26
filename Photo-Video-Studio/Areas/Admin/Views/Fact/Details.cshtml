@@ -1,0 +1,119 @@
+﻿@model Photo_Video_Studio.Models.Fact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="~/Public/images/@Model.Image" alt="Alternate Text" />
+        </dd>
+        <dt>
+            Experience Count
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceCount)
+        </dd>
+
+        <dt>
+            Project Count
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectsCount)
+        </dd>
+
+        <dt>
+            Client Count
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientsCount)
+        </dd>
+
+        <dt>
+            Award Count
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardsCount)
+        </dd>
+
+        <dt>
+            Experience Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceTitle)
+        </dd>
+
+        <dt>
+            Project Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectsTitle)
+        </dd>
+
+        <dt>
+            Client Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientsTitle)
+        </dd>
+
+        <dt>
+            Award Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardsTitle)
+        </dd>
+
+        <dt>
+            Experience Subtitle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceSubtitle)
+        </dd>
+
+        <dt>
+            Project Subtitle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectsSubtitle)
+        </dd>
+
+        <dt>
+            Client Subtitle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientsSubtitle)
+        </dd>
+
+        <dt>
+            Award Subtitle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AwardsSubtitle)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Index","Fact")">Back to List</a>
+</p>

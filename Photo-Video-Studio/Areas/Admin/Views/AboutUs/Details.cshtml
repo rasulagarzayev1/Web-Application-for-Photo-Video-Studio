@@ -1,0 +1,41 @@
+﻿@model Photo_Video_Studio.Models.About
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>About</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd style="width:50%;">
+            <img src="~/Public/images/@Model.Image" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            First Paragraph
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstTextPart)
+        </dd>
+
+        <dt>
+            Second Paragraph
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondTextPart)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Index","AboutUS")">Back to List</a>
+</p>

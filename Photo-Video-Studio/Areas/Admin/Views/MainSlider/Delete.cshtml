@@ -1,0 +1,56 @@
+﻿@model Photo_Video_Studio.Models.MainSlider
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Main Slider</h2>
+
+<h3 class="alert-danger">Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd style="width:50%;">
+            <img src="~/Public/images/mainslider/@Model.Image" alt="Alternate Text" />
+        </dd>
+        <dt>
+            Company Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RotateHeader)
+        </dd>
+
+        <dt>
+            Bold Title
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainTitle)
+        </dd>
+
+        <dt>
+            Subititle
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a class="btn btn-primary" href="@Url.Action("Index","MainSlider")">Back to List</a>
+    </div>
+    }
+</div>

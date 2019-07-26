@@ -1,0 +1,66 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model ContactViewModel
+<section id="contactHead">
+    <img src="~/Public/images/@Model.ContactHeader.Image" alt="">
+    <div class="contactLayout"></div>
+    <h1>CONTACT</h1>
+    <p class="contactSubtitle"><span>Our</span> Contact</p>
+</section>
+
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 contactInfo">
+                <h2>DETAIL</h2>
+                <p><i class="fas fa-map-marker-alt"></i>@Model.Contact.Location</p>
+                <p><i class="fa fa-phone"></i>@Model.Contact.Phone</p>
+                <p><i class="fa fa-envelope"></i>@Model.Contact.Mail</p>
+                <p>
+                    <i class="fab fa-skype"></i> @Model.Contact.Skype
+                </p>
+            </div>
+            <div class="col-md-8">
+                <h2>LEAVE YOUR MESSAGE</h2>
+                <div class="col-12">
+                    <form method="post">
+                        <input type="text" style="margin-bottom:3%;" name="firstname" value="" placeholder="Firstname" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.Mesagge.Firstname, "", new { @class = "text-danger" })
+                        <input type="text" style="margin-bottom:3%;" name="lastname" value="" placeholder="Lastname" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.Mesagge.Lastname, "", new { @class = "text-danger" })
+                        <input type="email" style="margin-bottom:3%;" name="email" value="" placeholder="Email" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.Mesagge.Email, "", new { @class = "text-danger" })
+                        <textarea placeholder="Your Message" class="form-control" name="content" style="margin-bottom:3%;"></textarea>
+                        @Html.ValidationMessageFor(model => model.Mesagge.Content, "", new { @class = "text-danger" })
+                        <input type="submit" class="btn btn-danger" style="margin-bottom:3%;" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="map">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="100%" height="440" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=BAKU&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                    scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/webdesign-muenchen/"></a>
+        </div>
+        <style>
+            .mapouter {
+                text-align: right;
+                height: 440px;
+                width: 100%;
+            }
+
+            .gmap_canvas {
+                overflow: hidden;
+                background: none !important;
+                height: 440px;
+                width: 100%;
+            }
+        </style>
+    </div>
+</section>

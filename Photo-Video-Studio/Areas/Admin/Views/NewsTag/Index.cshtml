@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Photo_Video_Studio.Models.NewsTag>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="NewsTag/Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tag)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "NewsTag", new { id =item.ID })" class="btn btn-warning"><i class="far fa-edit"></i></a>|
+            <a href="@Url.Action("Delete", "NewsTag", new { id =item.ID })" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+
+        </td>
+    </tr>
+}
+
+</table>

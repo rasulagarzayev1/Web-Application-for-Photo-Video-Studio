@@ -1,0 +1,11 @@
+﻿@using Photo_Video_Studio.Models
+@model List<Staff>
+
+<select class="form-control HireformItems">
+    @foreach (var item in Model)
+    {
+        <option value="@item.ID">@item.Firstname @item.Lastname</option>
+    }
+</select>
+
+

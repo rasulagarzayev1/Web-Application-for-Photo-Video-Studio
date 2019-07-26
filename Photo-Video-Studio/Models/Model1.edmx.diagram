@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3cfd2f51f6d34cf1a59505e6bcbb689d" Name="Diagram1">
+        <EntityTypeShape EntityType="PhotoStudioModel.About" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.AboutHeader" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.BlogComment" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.BlogHeader" Width="1.5" PointX="5.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Blog" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.BlogTag" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.BlogToTag" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.ClientSlider" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Contact" Width="1.5" PointX="8.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.ContactHeader" Width="1.5" PointX="8.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.ErrorHeader" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Fact" Width="1.5" PointX="7.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Gallery" Width="1.5" PointX="9.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.LoginHeader" Width="1.5" PointX="10.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.MainSlider" Width="1.5" PointX="10.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.News" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.NewsComment" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.NewsHeader" Width="1.5" PointX="11.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.NewsSingleHeader" Width="1.5" PointX="11.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.NewsTag" Width="1.5" PointX="3.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.NewsToTag" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.OrderType" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Partner" Width="1.5" PointX="12.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.RegisterHeader" Width="1.5" PointX="12.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.ServiceHeader" Width="1.5" PointX="9.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Staff" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.StaffOrder" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.StudioOrder" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Team" Width="1.5" PointX="11.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.User" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Video" Width="1.5" PointX="13.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="PhotoStudioModel.FK__BlogComme__BlogI__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__BlogComme__UserI__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__Blogs__UserID__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__BlogToTag__BlogI__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__BlogToTag__TagID__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__NewsComme__NewsI__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__NewsToTag__NewsI__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__NewsComme__UserI__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__NewsToTag__TagID__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__PhotoOrde__Order__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__StudioOrd__Order__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__PhotoOrde__Staff__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__PhotoOrde__UserI__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="PhotoStudioModel.FK__StudioOrd__UserI__08B54D69" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Vacation" Width="1.5" PointX="6" PointY="20.5" />
+        <AssociationConnector Association="PhotoStudioModel.FK__Vacations__Staff__1AD3FDA4" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Like" Width="1.5" PointX="8.25" PointY="15.625" />
+        <AssociationConnector Association="PhotoStudioModel.FK__Likes__BlogID__2180FB33" />
+        <AssociationConnector Association="PhotoStudioModel.FK__Likes__UserID__22751F6C" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Admin" Width="1.5" PointX="14.375" PointY="9.75" />
+        <EntityTypeShape EntityType="PhotoStudioModel.Mesagge" Width="1.5" PointX="14.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

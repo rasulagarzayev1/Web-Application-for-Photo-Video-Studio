@@ -1,0 +1,92 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model staffViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<section id="PersonalHeader">
+    <div class="col-12 forImage">
+
+        <div class="userImage">
+            <span><a href="@Url.Action("Edit","Staffs", new { id = Model.Staff.ID })"><i class="fas fa-edit" title="Edit User Info"></i></a></span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png" alt="">
+            <span><a href="@Url.Action("Logout","Account")" title="Log out"><i class="fas fa-sign-out-alt"></i></a></span>
+            <p>@Model.Staff.Firstname @Model.Staff.Lastname</p>
+        </div>
+    </div>
+</section>
+
+<main id="main">
+    <div class="container">
+        <div class="collapseTexts">
+            <span id="vacationClick">For Vacation</span>
+            <span id="orderClick">Your Orders</span>
+        </div>
+
+        <div class="col-12 forVacations myCont">
+            <form method="post" action="/Staffs/Index">
+                <div class="row hireFormRow">
+                    <div class="col-md-4 offset-md-1">
+                        <input name="VacationDateStart" min="@DateTime.Now" type="date" class="form-control calendar HireformItems" id="timePickerForVacationStart">
+                    </div>
+                    <div class="col-md-4">
+                        <input name="VacationDateEnd" min="@DateTime.Now" type="date" class="form-control calendar HireformItems" id="timePickerForVacationEnd">
+                    </div>
+                    <div class="col-md-3">
+                        <input style="border:none;" type="submit" value="Take Vacation" class="vacationButton">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <div class="tablePart">
+
+                @if (Model.StaffOrders.Where(s => s.StaffID == Model.Staff.ID).ToList().Count > 0)
+                {
+                    <table id="table1" class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Order Date</th>
+                                <th scope="col">Order Type</th>
+                                <th scope="col">Rented</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.StaffOrders)
+                            {
+                                <tr>
+                                    <td>@item.OrderDate.Value</td>
+                                    <td>@item.OrderType.OrderType1</td>
+                                    <td>@item.Staff.Firstname @item.Staff.Lastname</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p class="aler-danger">You have not got any orders</p>
+                }
+            </div>
+        </div>
+
+
+    </div>
+</main>
+@section Script{
+    <script>
+        $("#timePickerForVacationEnd").change(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/AJAX/TakeVacation",
+                    data: { startDate: $("#timePickerForVacationStart").val(), endDate: $(this).val() },
+                    type: "GET",
+                    dataType: "html",
+                    success: function (res) {
+                        $(".myCont").append(res);
+                    }
+                })
+            }
+        })
+    </script>
+    }

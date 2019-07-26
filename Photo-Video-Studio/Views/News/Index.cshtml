@@ -1,0 +1,51 @@
+﻿@using Photo_Video_Studio.ViewModels
+@model NewsViewModel
+@{
+    ViewBag.Title = "News";
+}
+<section id="newsHead">
+    <img src="~/Public/images/@Model.NewsHeader.Image" alt="">
+    <div class="contactLayout"></div>
+    <h1>NEWS</h1>
+    <p class="contactSubtitle"><span>Our</span> News</p>
+</section>
+
+<section id="mainNews">
+    <div class="container">
+        <div class="row newsparts">
+            @Html.Partial("_PartialNews", Model)
+        </div>
+    </div>
+
+</section>
+
+@section script{
+    <script>
+        var skipCount = 3;
+
+        var scrollLoadFunction = function () {
+            if ($(document).height() - $(window).scrollTop() - $(window).height() < 200) {
+                $.ajax({
+                    url: "/AJAX/LoadNews",
+                    type: "GET",
+                    data: { skip: skipCount },
+                    success: function (res) {
+                        if (res.trim().length != 0) {
+                            skipCount += 2;
+
+                            $(".newsparts").append(res);
+                        }
+                        else {
+                            window.removeEventListener("scroll", scrollLoadFunction);
+                        }
+                    }
+                })
+            }
+        }
+
+        window.addEventListener("scroll", scrollLoadFunction);
+    </script>
+}
+
+
+

@@ -1,0 +1,12 @@
+﻿@model Photo_Video_Studio.Models.NewsComment
+<div class="col-3">
+    <img src="~/Public/images/user.png" alt="">
+</div>
+<div class="col-9">
+    <h2 class="commentUser">@Model.User.Firstname @Model.User.Lastname <span class="commetDate">@Model.Commentdate.Value.ToString("MMMM dd, yyyy")</span></h2>
+    <p class="commentText">
+        @Model.Content
+    </p>
+</div>
+
+

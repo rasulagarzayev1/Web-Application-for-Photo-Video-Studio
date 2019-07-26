@@ -1,0 +1,117 @@
+#PersonalHeader {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+#PersonalHeader .forImage {
+  background-image: url("http://preview.yrthemes.com/cinamatography/assets/img/bradcamb/banner2.png");
+  height: 413px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  width: 100%;
+  position: relative;
+}
+#PersonalHeader .forImage .userImage {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  text-align: center;
+}
+#PersonalHeader .forImage .userImage img {
+  width: 40%;
+  height: 40%;
+  border-radius: 100%;
+  border: 5px solid #a81313;
+}
+#PersonalHeader .forImage .userImage a {
+  color: #c03c3c;
+}
+#PersonalHeader .forImage .userImage p {
+  color: #f0e5e5;
+  font-size: 1.5em;
+}
+
+#main {
+  padding: 7% 0%;
+}
+
+.collapseTexts {
+  width: 100%;
+  text-align: center;
+}
+.collapseTexts span {
+  margin-left: 5%;
+  color: white;
+  font-size: 1.6em;
+  text-decoration: none;
+  padding: 3%;
+  background-color: gray;
+}
+.collapseTexts span:hover {
+  box-shadow: 3px 3px 13px black;
+  background-color: #923434;
+  cursor:pointer;
+}
+
+.tablePart {
+    margin-top: 5%;
+    display: none;
+}
+.myBlogs {
+    display: none;
+}
+
+#blogToggle {
+    margin-top: 5%;
+}
+
+#table1,
+#table2{
+  margin-top: 5%;
+}
+.forVacations{
+    display:none;
+    margin-top:5%;
+}
+.forVacations .vacationButton{
+    padding:3%;
+}
+    .forVacations .vacationButton:hover {
+        cursor: pointer;
+        color: white;
+        background-color: #923434;
+    }
+
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    #PersonalHeader .forImage {
+        background-image: url("http://preview.yrthemes.com/cinamatography/assets/img/bradcamb/banner2.png");
+        height: 283px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        width: 100%;
+        position: relative;
+    }
+    .collapseTexts span {
+        margin-left: 5%;
+        font-size: 1em;
+    }
+    #PersonalHeader .forImage .userImage {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        text-align: center;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    #PersonalHeader .forImage .userImage {
+        position: absolute;
+        top: 35%;
+        left: 27%;
+        text-align: center;
+    }
+}
+
+    /*# sourceMappingURL=paersonal.css.map */
