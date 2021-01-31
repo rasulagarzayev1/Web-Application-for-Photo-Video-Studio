@@ -1,2 +1,1 @@
-# PhotoVideoStudioBack-End
- ### Back-end part of photo video studio template
+# Web Application for Photo Video Studio
